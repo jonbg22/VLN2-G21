@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import secret
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z6jn2tqsfqeh@05@ev6!znqe!8u@h)5cy8b!3_2nyh0z@iqm(e'
+SECRET_KEY = secret.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'menu',
+    'menu.apps.MenuConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,14 +75,15 @@ WSGI_APPLICATION = 'pizza_lair.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pizza-lair-db',
-        'USER': 'postgres',
-        'PASSWORD': 'Abdc.1234',
-        'HOST': '34.105.231.231',
-        'PORT': '5432'
+        'USER': secret.USER,
+        'PASSWORD': secret.PASSWORD,
+        'HOST': secret.HOST,
+        'PORT': secret.PORT
     }
 }
 

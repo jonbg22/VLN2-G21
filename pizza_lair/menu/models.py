@@ -4,7 +4,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField()
     price = models.FloatField()
-    imgLink = models.CharField(max_length=255)
+    imgLink = models.CharField(max_length=999)
 
 
 class PizzaCategory(models.Model):
