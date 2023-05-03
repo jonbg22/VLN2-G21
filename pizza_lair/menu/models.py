@@ -21,15 +21,15 @@ class Topping(models.Model):
 
 
 class Pizza(models.Model):
-    prodID = models.OneToOneField(Product, on_delete=models.CASCADE)
+    prod = models.OneToOneField(Product, on_delete=models.CASCADE)
     toppings = models.ManyToManyField(Topping)
     category = models.ManyToManyField(PizzaCategory)
 
 
 class Side(models.Model):
-    prodID = models.OneToOneField(Product, on_delete=models.CASCADE)
+    prod = models.OneToOneField(Product, on_delete=models.CASCADE)
 
 
 class Drink(models.Model):
-    prodID = models.OneToOneField(Product, on_delete=models.CASCADE)
+    prod = models.OneToOneField(Product, on_delete=models.CASCADE)
 

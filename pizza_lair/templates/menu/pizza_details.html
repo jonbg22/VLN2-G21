@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <img src="{{ pizza.prod.imgLink }}">
+    <h1>{{ pizza.prod.name }}</h1>
+    <h2>Ingredients</h2>
+    <ul>
+    {% for topping in pizza.toppings.all %}
+        <li>{{ topping.name }}</li>
+    {% endfor %}
+    </ul>
+    <button>Add to Cart</button>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'menu/menunavbar.html' %}
+    <div id="pizzas">
+
+        {% for pizza in pizzas %}
+            <div class="pizza" data-id="{{ pizza.prod.id }}">
+            <a href="/menu/pizza/{{ pizza.prod.id }}">
+            <img width="150px" height="150px" src="{{ pizza.prod.imgLink }}">
+                <h2>{{ pizza.prod.name }}</h2>
+            </a>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
