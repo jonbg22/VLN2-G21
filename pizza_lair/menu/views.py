@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from menu.models import Pizza
+from menu.models import Pizza,Side,Drink
 
 def index(request):
-    return render(request, 'menu/index.html', {
+    return render(request, 'menu/pizzas.html', {
         'pizzas': Pizza.objects.select_related("prod")
     })
 
@@ -13,7 +13,9 @@ def get_pizza_by_id(request,id):
 
 
 def sides(request):
-    pass
+    return render(request, 'menu/sides.html', {
+        'sides': Side.objects.select_related("prod")
+    })
 
 
 def drinks(request):

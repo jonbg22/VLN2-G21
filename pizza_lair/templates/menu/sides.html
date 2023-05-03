@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'menu/menunavbar.html' %}
+    <h1>Sides</h1>
+    <div id="sides">
+        {% for side in sides %}
+            <div class="side">
+            <h2>{{ side.prod.name }}</h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
