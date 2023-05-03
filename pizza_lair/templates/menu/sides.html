@@ -2,11 +2,14 @@
 
 {% block content %}
     {% include 'menu/menunavbar.html' %}
-    <h1>Sides</h1>
+    <h1 class="sides-header">Sides</h1>
     <div id="sides">
         {% for side in sides %}
             <div class="side">
-            <h2>{{ side.prod.name }}</h2>
+                <h2>{{ side.prod.name }}</h2>
+                <img src="{{ side.prod.imgLink }}" class="side-img">
+                <hr class="side-line">
+                <p class="side-price">${{ side.prod.price | floatformat }}</p>
             </div>
         {% endfor %}
     </div>

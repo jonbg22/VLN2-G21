@@ -2,6 +2,7 @@
 {% block content %}
     <img src="{{ pizza.prod.imgLink }}">
     <h1>{{ pizza.prod.name }}</h1>
+    <p>{{ pizza.prod.desc }}</p>
     <h2>Ingredients</h2>
     <ul>
     {% for topping in pizza.toppings.all %}
