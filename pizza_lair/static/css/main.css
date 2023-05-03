@@ -1,0 +1,30 @@
+#navbar {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+#nav-left {
+    font-size: 1.5rem;
+    margin: auto 0;
+}
+#nav-left > a {
+    margin: 1rem;
+}
+
+#nav-center {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+}
+
+#nav-right {
+    font-size: 1.5rem;
+    margin: auto 0;
+    text-align: right;
+}
+
+.nav-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 0.8rem;
+}
