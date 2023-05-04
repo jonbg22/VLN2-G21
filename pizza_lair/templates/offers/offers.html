@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="offers">
+
+        {% for offer in offers %}
+            <div class="offer" data-id="{{ offer.id }}">
+            <a href="offers/{{ offer.id }}">
+            <img width="150px" height="150px" class="pizza-img" src="{{ offer.imgLink }}">
+            <h2 class="offer-name">{{ offer.name }}</h2>
+            </a>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

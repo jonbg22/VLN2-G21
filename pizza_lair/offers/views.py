@@ -1,5 +1,13 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from offers.models import Offer
 # Create your views here.
 def index(request):
-    return HttpResponse('Hello from offers kv jón g legend in the game')
+    return render(request, 'offers/offers.html', {
+        'offers': Offer.objects.all()
+    })
+
+def get_offer_by_id(request, id):
+    return render(request, 'offers/offer_details.html', {
+        'offer': get_object_or_404(Offer, pk=id)
+    })
+
