@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'menu/menunavbar.html' %}
+    <h1 class="drink-header">Drinks</h1>
+    <div id="drinks">
+    {% for drink in drinks %}
+        <div class="drink">
+                <h2>{{ drink.prod.name }}</h2>
+                <img src="{{ drink.prod.imgLink }}" class="drink-img">
+                <hr class="drink-line">
+                <p class="drink-price">${{ drink.prod.price | floatformat }}</p>
+            </div>
+    {% endfor %}
+    </div>
+{% endblock %}

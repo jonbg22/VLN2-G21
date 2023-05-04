@@ -19,4 +19,6 @@ def sides(request):
 
 
 def drinks(request):
-    pass
+    return render(request, 'menu/drinks.html', {
+        'drinks': Drink.objects.select_related("prod")
+    })

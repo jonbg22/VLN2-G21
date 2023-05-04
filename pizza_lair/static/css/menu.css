@@ -83,3 +83,45 @@ a {
     font-size: 1.5rem;
     margin: auto;
 }
+
+
+/* Drinks */
+
+#drinks {
+    display: grid;
+    width: 60%;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.drink-header {
+    text-align: center;
+    font-size: 3rem
+}
+
+
+.drink {
+    background: whitesmoke;
+    border: 1px solid grey;
+    width: 250px;
+    height: 300px;
+    text-align: center;
+}
+
+
+.drink-img {
+    width: 150px;
+    height: 150px;
+}
+
+
+.drink-line {
+    width: 90%;
+    margin: 1em auto;
+}
+
+.drink-price {
+    font-size: 1.5rem;
+    margin: auto;
+}
