@@ -6,7 +6,18 @@
 }
 
 .pizza-name {
-    margin-top: 40px;
+    height: 60px;
+    margin: auto;
+}
+
+
+.pizza-line {
+    width: 80%;
+}
+
+.pizza-price {
+    font-size: 1.3rem;
+    margin: auto;
 }
 
 .pizza-img {
@@ -75,7 +86,7 @@ a {
 
 
 .side-line {
-    width: 90%;
+    width: 80%;
     margin: 1em auto;
 }
 
@@ -117,7 +128,7 @@ a {
 
 
 .drink-line {
-    width: 90%;
+    width: 80%;
     margin: 1em auto;
 }
 
