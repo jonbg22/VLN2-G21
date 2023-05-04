@@ -64,7 +64,7 @@ a {
     gap: 2rem;
 }
 
-.sides-header {
+.sides-header, .pizza-header {
     text-align: center;
     font-size: 3rem
 }

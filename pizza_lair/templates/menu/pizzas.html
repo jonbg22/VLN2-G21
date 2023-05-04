@@ -2,8 +2,8 @@
 
 {% block content %}
     {% include 'menu/menunavbar.html' %}
+    <h1 class="pizza-header">Pizzas</h1>
     <div id="pizzas">
-
         {% for pizza in pizzas %}
             <div class="pizza" data-id="{{ pizza.prod.id }}">
                 <a href="/menu/pizzas/{{ pizza.prod.id }}">
