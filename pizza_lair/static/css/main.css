@@ -34,3 +34,13 @@
     height: 50px;
     margin: 0 0.8rem;
 }
+
+.cart {
+    background-color: grey;
+    border: solid 2px rgba(155, 155, 155, .5);
+}
+
+.profile {
+    background-color: grey;
+    border: solid 2px rgba(155, 155, 155, .5);
+}
