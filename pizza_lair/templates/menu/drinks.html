@@ -6,10 +6,12 @@
     <div id="drinks">
     {% for drink in drinks %}
         <div class="drink">
+        <a href="drinks/{{ drink.prod.id }}">
                 <h2>{{ drink.prod.name }}</h2>
                 <img src="{{ drink.prod.imgLink }}" class="drink-img">
                 <hr class="drink-line">
                 <p class="drink-price">${{ drink.prod.price | floatformat }}</p>
+        </a>
             </div>
     {% endfor %}
     </div>

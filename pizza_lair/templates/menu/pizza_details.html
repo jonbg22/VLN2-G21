@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <img src="{{ pizza.prod.imgLink }}">
-    <h1>{{ pizza.prod.name }}</h1>
+    <img width="300px" height="300px" src="{{ pizza.prod.imgLink }}">
+    <h1>{{ pizza.prod.name }}</h1> <p>${{ pizza.prod.price | floatformat }}</p>
     <p>{{ pizza.prod.desc }}</p>
     <h2>Ingredients</h2>
     <ul>

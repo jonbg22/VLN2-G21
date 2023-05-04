@@ -1,5 +1,11 @@
+a {
+    text-decoration: none;
+    color: black !important;
+}
+
 #navbar {
     display: grid;
+    padding-top: 10px;
     grid-template-columns: 30% 40% 30%;
 }
 
