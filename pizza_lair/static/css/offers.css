@@ -21,8 +21,34 @@
     height: 60px;
 
 }
+#offerholder {
+    text-align: center;
+}
 
 #offerinfo {
-    background-color: red;
+    padding: 10px;
+    display: inline-block;
+    flex-flow: column;
+    margin: 1em;
+    text-align: center;
+    background: whitesmoke;
+    height: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 45%;
+    vertical-align: top;
+}
+#offerselection {
+    padding: 10px;
+    display: inline-block;
+    flex-flow: column;
+    margin: 1em;
+    text-align: center;
+    background: whitesmoke;
+    height: 700px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 45%;
+    vertical-align: top;
 }
 
