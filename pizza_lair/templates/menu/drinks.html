@@ -8,7 +8,7 @@
         <div class="drink">
         <a href="drinks/{{ drink.prod.id }}">
             <img src="{{ drink.prod.imgLink }}" class="drink-img">
-            <h2>{{ drink.prod.name }}</h2>
+            <h2 class="drink-name">{{ drink.prod.name }}</h2>
             <hr class="drink-line">
             <p class="drink-price">${{ drink.prod.price | floatformat }}</p>
         </a>
