@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from menu.models import Pizza,Side,Drink
+from menu.models import Pizza,Side,Drink,PizzaCategory
 
 
 def index(request):
