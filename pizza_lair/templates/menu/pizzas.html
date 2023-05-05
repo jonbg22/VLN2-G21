@@ -2,12 +2,30 @@
 
 {% block content %}
     {% include 'menu/menunavbar.html' %}
+    <h1 class="pizza-header">Pizzas</h1>
+    <div id="filtercontainer">
+        <div id="pizza-orderby">
+            <label for="pizza-orderby-selector">Order by: </label>
+            <select id="pizza-orderby-selector">
+                <option>Name</option>
+                <option>Price</option>
+            </select>
+            <span>&#8593;</span>
+            <span>&#8595;</span>
+        </div>
+        <div id="pizza-filters">
+            <span>Filter</span>
+            <div class="filter filter-new">New</div>
+            <div class="filter filter-spicy">Spicy</div>
+            <div class="filter filter-vegan">Vegan</div>
+            <div class="filter filter-vegetarian">Vegetarian</div>
+        </div>
+    </div>
     <div id="pizzas">
-
         {% for pizza in pizzas %}
             <div class="pizza" data-id="{{ pizza.prod.id }}">
                 <a href="/menu/pizzas/{{ pizza.prod.id }}">
-                <img width="150px" height="150px" class="pizza-img" src="{{ pizza.prod.imgLink }}">
+                <img class="pizza-img" src="{{ pizza.prod.imgLink }}">
                 <h2 class="pizza-name">{{ pizza.prod.name }}</h2>
                 <hr class="pizza-line">
                 <p class="pizza-price">${{ pizza.prod.price | floatformat }}</p>

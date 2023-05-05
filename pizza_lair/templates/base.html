@@ -6,13 +6,15 @@
     <link rel="stylesheet" href="/static/css/menu.css">
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/profile.css">
-    <link rel="stylesheet" href="/static/css/offers.css"
+    <link rel="stylesheet" href="/static/css/offers.css">
 </head>
 <body>
-<div class="container">
+<div class="page-container">
     {% include 'header.html' %}
+        <div class="content">
             {% block content %}
             {% endblock %}
+        </div>
     {% include 'footer.html' %}
 </div>
 </body>
