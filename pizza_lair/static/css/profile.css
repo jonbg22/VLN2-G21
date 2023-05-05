@@ -1,4 +1,8 @@
 .profile {
-    background: linear-gradient(120deg,#2980b9, #8e44ad);
+    background: linear-gradient(120deg,#FF71CE, #B967FF);
     border: solid 2px rgba(155, 155, 155, .5);
+}
+a.register {
+    color: blue !important;
+    text-decoration: underline;
 }
