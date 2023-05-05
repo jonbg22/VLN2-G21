@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block head %}
+    <title>{{ pizza.prod.name }}</title>
+{% endblock %}
 {% block content %}
     <img width="300px" height="300px" src="{{ pizza.prod.imgLink }}">
     <h1>{{ pizza.prod.name }}</h1> <p>${{ pizza.prod.price | floatformat }}</p>
@@ -9,5 +12,6 @@
         <li>{{ topping.name }}</li>
     {% endfor %}
     </ul>
-    <button>Add to Cart</button>
+    {% csrf_token %}
+    <button onclick="addToCart({{ pizza.prod.id }})">Add to Cart</button>
 {% endblock %}
