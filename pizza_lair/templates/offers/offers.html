@@ -5,7 +5,7 @@
 
         {% for offer in offers %}
             <div class="offer" data-id="{{ offer.id }}">
-            <a href="offers/{{ offer.id }}">
+            <a href="{% url 'offer_details' offer.id %}">
             <img width="150px" height="150px" class="pizza-img" src="{{ offer.imgLink }}">
             <h2 class="offer-name">{{ offer.name }}</h2>
                 <p>{{ offer.price }}</p>
