@@ -1,0 +1,29 @@
+#offers {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 60%;
+    margin: 2rem auto;
+}
+
+.offer {
+    display: flex;
+    flex-flow: column;
+    margin: 1em;
+    text-align: center;
+    background: whitesmoke;
+    height: 300px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.offer-name {
+    margin: auto;
+    height: 60px;
+
+}
+
+#offerinfo {
+    background-color: red;
+}
+
+#

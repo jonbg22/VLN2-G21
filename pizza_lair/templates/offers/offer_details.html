@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div id="offerinfo">
     <h1>{{ offer.name }}</h1>
     <p>{{ offer.desc }}</p>
     {% for i in pizza_amount %}
@@ -27,4 +28,6 @@
         </select>
     {% endfor %}
     <button>Add to Cart</button>
+    </div>
 {% endblock %}
+
