@@ -2,7 +2,6 @@
     background: linear-gradient(120deg,yellow, red);
     border: solid 2px rgba(155, 155, 155, .5);
     position: absolute;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -40,7 +39,7 @@ form .txt_field{
 }
 
 .txt_field label{
-    position: absolute;
+    height: auto;
     top: 50%;
     left: 5px;
     color: black;
