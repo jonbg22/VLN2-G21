@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class = "profile">
-        <h2>Welcome to my profile</h2>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-
-        <input type="text" placeholder="Enter Email" name="uEmail" required>
-
-        <input type="text" placeholder="Enter Zip" name="uZip" required>
-
-        <input type="text" placeholder="Enter City" name="uCity" required>
-
-        <input type="text" placeholder="Enter Country" name="uCity" required>
-
-        <input type="text" placeholder="Enter Street" name="uStreet" required>
-
-        <input type="text" placeholder="Enter House number" name="uHouseNumber" required>
+        <h1>Login</h1>
+        <form method ="post">
+            <div class = "txt_field">
+                <input type="text" required>
+                <label>Username</label>
+            </div>
+            <div class = "txt_field">
+                <input type="text" required>
+                <label>Password</label>
+            </div>
+            <input type="submit" value="login">
+            <div class="signup_link">
+                Sign up here <a href="#">Register</a>
+            </div>
+        </form>
     </div>
 {% endblock %}

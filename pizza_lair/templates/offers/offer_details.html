@@ -2,11 +2,29 @@
 {% block content %}
     <h1>{{ offer.name }}</h1>
     <p>{{ offer.desc }}</p>
-    <h2>Pizza 1</h2>
-    <p>select pizza 1</p>
-    <h3>Pizza 2</h3>
-    <p>select pizza 2</p>
-    <p>ekki tilbúið</p>
-
+    {% for i in pizza_amount %}
+        <h2>Select Pizza {{ i }}</h2>
+        <select style="width: 150px" name="pizzas" id="pizzas">
+            {% for pizza in pizzas %}
+                <option value="{{ pizza.prod.name }}">{{ pizza.prod.name }}</option>
+            {% endfor %}
+        </select>
+    {% endfor %}
+    {% for j in sides_amount %}
+        <h3>Select sides {{ j }}</h3>
+        <select style="width: 150px" name="sides" id="sides">
+            {% for side in sides %}
+                <option value="{{ side.prod.name }}">{{ side.prod.name }}</option>
+            {% endfor %}
+        </select>
+    {% endfor %}
+    {% for k in drinks_amount %}
+        <h4>Select drink {{ k }}</h4>
+        <select style="width: 150px" name="drinks" id="drinks">
+            {% for drink in drinks %}
+                <option value="{{ drink.prod.name }}">{{ drink.prod.name }}</option>
+            {% endfor %}
+        </select>
+    {% endfor %}
     <button>Add to Cart</button>
 {% endblock %}
