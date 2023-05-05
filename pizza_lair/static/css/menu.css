@@ -3,6 +3,7 @@
     grid-template-columns: repeat(4,1fr);
     width: 60%;
     margin: 2rem auto;
+    gap: 2rem;
 }
 
 .pizza-name {
@@ -21,16 +22,18 @@
 }
 
 .pizza-img {
+    width: 150px;
+    height: 150px;
     margin: 10px;
 }
 
 .pizza {
     display: flex;
     flex-flow: column;
-    margin: 1em;
     text-align: center;
     background: whitesmoke;
     height: 300px;
+    min-width: 200px;
     border: 1px solid grey;
 }
 
@@ -59,7 +62,7 @@ a {
 #sides {
     display: grid;
     width: 60%;
-    margin: auto;
+    margin: 2rem auto;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
@@ -73,13 +76,14 @@ a {
 .side {
     background: whitesmoke;
     border: 1px solid grey;
-    width: 250px;
+    min-width: 200px;
     height: 300px;
     text-align: center;
 }
 
 
 .side-img {
+    margin-top: 1em;
     width: 150px;
     height: 150px;
 }
@@ -101,7 +105,7 @@ a {
 #drinks {
     display: grid;
     width: 60%;
-    margin: auto;
+    margin: 2rem auto;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
@@ -115,13 +119,14 @@ a {
 .drink {
     background: whitesmoke;
     border: 1px solid grey;
-    width: 250px;
     height: 300px;
+    min-width: 200px;
     text-align: center;
 }
 
 
 .drink-img {
+    margin-top: 1em;
     width: 150px;
     height: 150px;
 }

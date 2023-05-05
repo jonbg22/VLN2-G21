@@ -7,8 +7,8 @@
         {% for side in sides %}
             <div class="side">
             <a href="sides/{{ side.prod.id }}">
-                <h2>{{ side.prod.name }}</h2>
                 <img src="{{ side.prod.imgLink }}" class="side-img">
+                <h2>{{ side.prod.name }}</h2>
                 <hr class="side-line">
                 <p class="side-price">${{ side.prod.price | floatformat }}</p>
             </a>
