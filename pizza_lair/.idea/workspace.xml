@@ -16,16 +16,30 @@
       <change beforePath="$PROJECT_DIR$/templates/menu/sides.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menu/sides.html" afterDir="false" />
 =======
     <list default="true" id="47fb97d5-6c00-4be2-af7a-a76fcb260dc5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/static/css/offers.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/offers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/offers/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/offers/offer_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offers/offer_details.html" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/templates/offers/offers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/offers/offers.html" afterDir="false" />
+=======
 >>>>>>> ed64c00b8853bdd7fa24715aada8313fc192c9f0
+>>>>>>> 1088a761ea8409fb7e02baa5ae6768c978f242d7
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+=======
 <<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,11 +67,13 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
 =======
+>>>>>>> 1088a761ea8409fb7e02baa5ae6768c978f242d7
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.selected.package.tslint": "(autodetect)"
 >>>>>>> ed64c00b8853bdd7fa24715aada8313fc192c9f0
   }

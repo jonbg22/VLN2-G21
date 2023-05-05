@@ -4,4 +4,5 @@ from . import views
 urlpatterns = [
     # http://localhost:8000/profile
     path('', views.index, name="index"),
+    path('register', views.register, name='register')
 ]
