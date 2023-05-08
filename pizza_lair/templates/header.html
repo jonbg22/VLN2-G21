@@ -7,13 +7,22 @@
         <div id="nav-center">
             <a href="/">Pizza Lair</a>
         </div>
-        <div id="nav-right">
-            <a href="/cart/">
-                <img src="/static/images/shoppingcart.svg" class="nav-icon cart-icon">
+        {% if user.is_authenticated %}
+            <div class="nav-right">
+                <a href="/cart/">
+                    <img src="/static/images/shoppingcart.svg" class="nav-icon cart-icon">
+                </a>
+            </div>
+
+        {% else %}
+            <div class="nav-right">
+            <a href="{% url 'login' %}">
+                login
             </a>
-            <a href="/profile/">
-                <img src="/static/images/profile.svg" class="nav-icon profile-icon">
+            <a href="{% url 'register' %}">
+                register
             </a>
-        </div>
+            </div>
+        {% endif %}
     </nav>
 </header>
