@@ -40,13 +40,36 @@
 
 
 .filter {
+    opacity: 0.011;
     height: 20px;
     width: 50px;
     background: red;
 }
-.filter-new {
+
+
+#pizza-filters label, #pizza-orderby {
+    cursor: pointer;
+
 }
 
+#filter-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+#pizza-filters {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.orderdir {
+    opacity: 0.011;
+}
+.orderdir-label {
+    cursor: pointer;
+}
 
 /* Might remove */
 a {

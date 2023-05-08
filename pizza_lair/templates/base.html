@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="{% static '/css/main.css' %}">
     <link rel="stylesheet" href="{% static '/css/profile.css' %}">
     <link rel="stylesheet" href="{% static '/css/offers.css' %}">
-    <script src="{% static 'js/cart.js' %}" defer></script>
 </head>
 <body>
 <div class="page-container">
@@ -21,5 +20,9 @@
         </div>
     {% include 'footer.html' %}
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js"></script>
+<script src="{% static 'js/cart.js' %}" defer></script>
+<script src="{% static 'js/pizza.js' %}" defer></script>
 </body>
 </html>
