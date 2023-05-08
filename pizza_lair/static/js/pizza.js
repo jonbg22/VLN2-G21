@@ -5,9 +5,13 @@ $(document).ready(function () {
         const filterVal = $('input[name="category"]:checked').val();
         const orderByVal = $('#pizza-orderby-selector').find(':selected').val()
         const orderByDir = $('input[name="orderdir"]:checked').val();
+        console.log("Search = " + searchInput)
+        console.log("Filter = " + filterVal)
+        console.log("Order = " + orderByVal + " " + orderByDir)
 
-        let url = `/menu/pizzas?search=${searchInput}&filter=${filterVal}&orderBy=${orderByVal}&orderDir=${orderByDir}`
 
+        let url = `/menu/pizzas?search=${searchInput}&filter=${filterVal ? filterVal : ""}&orderBy=${orderByVal}&orderDir=${orderByDir}`
+        console.log("URL = " + url)
         $.ajax({
             url: url,
             type: 'GET',
@@ -36,9 +40,9 @@ $(document).ready(function () {
 
 
     $('#pizza-search-btn').click(updatePizzas)
-
-    $('.filter').click(function(e) {
-        console.log(e.target.value);
-    })
+    $('.filter').click(function (e) {
+        if (e.target.checked) e.target.checked = false;
+        updatePizzas();
+    });
 
 });

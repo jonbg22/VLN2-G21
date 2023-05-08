@@ -40,9 +40,12 @@
 
 
 .filter {
-    opacity: 0.011;
     height: 20px;
     width: 50px;
+    background: red;
+}
+
+input[name="category"]:checked + label {
     background: red;
 }
 
