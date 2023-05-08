@@ -3,22 +3,34 @@
 {% block content %}
     {% include 'menu/menunavbar.html' %}
     <h1 class="pizza-header">Pizzas</h1>
-    <div id="filtercontainer">
+    <div id="filter-container">
         <div id="pizza-orderby">
             <label for="pizza-orderby-selector">Order by: </label>
             <select id="pizza-orderby-selector">
-                <option>Name</option>
+                <option selected>Name</option>
                 <option>Price</option>
             </select>
-            <span>&#8593;</span>
-            <span>&#8595;</span>
+            <input class="orderdir" type="radio" name="orderdir" id="asc" value="ascending" checked>
+            <label class="orderdir-label" for="asc">&#8593;</label>
+            <input class="orderdir" type="radio" name="orderdir" id="descending" value="descending">
+            <label class="orderdir-label" for="asc">&#8595;</label>
+
+        </div>
+        <div id="pizza-search">
+            <label for="pizza-search-input">Search: </label>
+            <input type="search" id="pizza-search-input">
+            <button type="button" id="pizza-search-btn">Search</button>
         </div>
         <div id="pizza-filters">
             <span>Filter</span>
-            <div class="filter filter-new">New</div>
-            <div class="filter filter-spicy">Spicy</div>
-            <div class="filter filter-vegan">Vegan</div>
-            <div class="filter filter-vegetarian">Vegetarian</div>
+            <input class="filter" id="filter-new" type="radio" name="category" value="New">
+            <label for="filter-new">New</label>
+            <input class="filter" id="filter-spicy" type="radio" name="category" value="Spicy">
+            <label for="filter-spicy">Spicy</label>
+            <input class="filter" id="filter-vegan" type="radio" name="category" value="Vegan">
+            <label for="filter-vegan">Vegan</label>
+            <input class="filter" id="filter-vegetarian" type="radio" name="category" value="Vegetarian">
+            <label for="filter-vegetarian">Vegetarian</label>
         </div>
     </div>
     <div id="pizzas">
@@ -29,7 +41,6 @@
                 <h2 class="pizza-name">{{ pizza.prod.name }}</h2>
                 <hr class="pizza-line">
                 <p class="pizza-price">${{ pizza.prod.price | floatformat }}</p>
-
             </a>
             </div>
         {% endfor %}

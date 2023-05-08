@@ -25,6 +25,9 @@ class Pizza(models.Model):
     toppings = models.ManyToManyField(Topping)
     category = models.ManyToManyField(PizzaCategory)
 
+    def __str__(self):
+        print(self.prod.name)
+
 
 class Side(models.Model):
     prod = models.OneToOneField(Product, on_delete=models.CASCADE)

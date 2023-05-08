@@ -1,6 +1,7 @@
-from django.http import HttpResponse, HttpResponseNotAllowed
+from django.http import HttpResponse, HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from menu.models import Pizza,Side,Drink,PizzaCategory
+from menu.models import Pizza, Side, Drink, PizzaCategory, Product
+from django.core import serializers
 import json
 
 def addToCart(request):
@@ -25,6 +26,18 @@ def addToCart(request):
 
 
 def pizzas(request):
+    flag = False
+    print(request.GET.keys())
+    if 'search' in request.GET:
+        search = request.GET['search']
+        filtered_pizzas = []
+        for pizza in Pizza.objects.select_related('prod').filter(prod__name__icontains=search):
+            selected_pizza = {'id': pizza.id, 'prod': serializers.serialize('json', [pizza.prod,])}
+            filtered_pizzas.append(selected_pizza)
+        return JsonResponse({'data': filtered_pizzas})
+    if 'filter' in request.GET:
+        print("HERE")
+
     return render(request, 'menu/pizzas.html', {
         'pizzas': Pizza.objects.select_related("prod")
     })
