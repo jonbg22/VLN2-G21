@@ -27,16 +27,36 @@ def addToCart(request):
 
 def pizzas(request):
     flag = False
+    filtered_pizzas = []
+    all_pizzas = Pizza.objects.all()
     print(request.GET.keys())
-    if 'search' in request.GET:
+    if request.GET.get('search') not in [None, ""]:
+        flag = True
         search = request.GET['search']
-        filtered_pizzas = []
-        for pizza in Pizza.objects.select_related('prod').filter(prod__name__icontains=search):
-            selected_pizza = {'id': pizza.id, 'prod': serializers.serialize('json', [pizza.prod,])}
+        all_pizzas = all_pizzas.filter(prod__name__icontains=search)
+    if request.GET.get('filter') not in [None, ""]:
+        flag = True
+        category_filter = request.GET['filter']
+        all_pizzas = all_pizzas.filter(category__name=category_filter)
+    if request.GET.get('orderBy') not in [None, ""]:
+        flag = True
+        order_by = request.GET['orderBy']
+        if order_by == "Price":
+            if request.GET.get('orderDir') == "descending":
+                all_pizzas = all_pizzas.order_by("-prod__price")
+            else:
+                all_pizzas = all_pizzas.order_by("prod__price")
+        elif order_by == "Name":
+            if request.GET.get('orderDir') == "descending":
+                all_pizzas = all_pizzas.order_by("-prod__name")
+            else:
+                all_pizzas = all_pizzas.order_by("prod__name")
+
+    if flag:
+        for pizza in all_pizzas:
+            selected_pizza = {'id': pizza.id, 'prod': serializers.serialize('json', [pizza.prod, ])}
             filtered_pizzas.append(selected_pizza)
         return JsonResponse({'data': filtered_pizzas})
-    if 'filter' in request.GET:
-        print("HERE")
 
     return render(request, 'menu/pizzas.html', {
         'pizzas': Pizza.objects.select_related("prod")

@@ -26,7 +26,8 @@ class Pizza(models.Model):
     category = models.ManyToManyField(PizzaCategory)
 
     def __str__(self):
-        print(self.prod.name)
+        return str(self.prod.name)
+
 
 
 class Side(models.Model):
