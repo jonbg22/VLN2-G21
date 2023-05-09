@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 id="pizzaod">Pizza Of The Day!</h1>
+    <a href="{% url 'offer_details' 5 %}">
+    <img src="/static/images/pizza.png" class="pizzaofday">
+    </a>
 {% endblock %}

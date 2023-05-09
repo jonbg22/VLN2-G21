@@ -45,6 +45,8 @@ a {
 }
 
 #navbar {
+    height: 25%;
+    background-color: red;
     display: grid;
     padding-top: 10px;
     grid-template-columns: 30% 40% 30%;
@@ -53,6 +55,7 @@ a {
 
 #nav-left {
     font-size: 1.5rem;
+    color: white;
     margin: auto 0;
 }
 
