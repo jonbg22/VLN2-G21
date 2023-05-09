@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id="offerholder">
     <div id="offerinfo">
-    <h1>{{ offer.name }}</h1>
-    <p>{{ offer.desc }}</p>
+    <h1 class="offer-dname">{{ offer.name }}</h1>
+    <hr class="offer-line">
+    <p class="offer-desc">{{ offer.desc }}</p>
     {% for i in pizza_amount %}
         <h2>Select Pizza {{ i }}</h2>
         <select style="width: 150px" name="pizzas" id="pizzas">
@@ -29,10 +29,6 @@
         </select>
     {% endfor %}
     <button>Add to Cart</button>
-    </div>
-    <div id="offerselection">
-
-    </div>
     </div>
 {% endblock %}
 
