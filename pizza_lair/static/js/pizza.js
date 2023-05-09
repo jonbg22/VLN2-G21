@@ -41,8 +41,8 @@ $(document).ready(function () {
 
     $('#pizza-search-btn').click(updatePizzas)
     $('.filter').click(function (e) {
-        if (e.target.checked) e.target.checked = false;
-        updatePizzas();
+        if ($(this))
+        //updatePizzas();
     });
 
 });
