@@ -1,0 +1,6 @@
+.cart-item {
+    display: flex;
+}
+.cart-item p {
+    margin: 0 0.5em;
+}

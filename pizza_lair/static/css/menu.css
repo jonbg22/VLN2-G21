@@ -36,6 +36,7 @@
     height: 300px;
     min-width: 200px;
     border: 1px solid grey;
+    border-radius: 6%;
 }
 
 
@@ -59,10 +60,12 @@ input[name="category"]:checked + label {
 }
 
 #filter-container {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-flow: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+#filter-container > div {
+    margin: auto;
 }
 
 #pizza-filters {

@@ -5,26 +5,6 @@ from django.core import serializers
 import json
 
 
-def addToCart(request):
-    print(request.method)
-    if request.method == "GET":
-        del request.session["cart"]
-        return HttpResponse("Done", status=200)
-
-    if not request.method == "POST":
-        return HttpResponseNotAllowed(['POST'])
-
-    data = json.loads(request.body)
-    print("CART:", type(request.session.get("cart")))
-    if request.session.get("cart"):
-        cart = json.loads(request.session.get("cart"))
-        cart.append(data['id'])
-        request.session["cart"] = json.dumps(cart)
-    else:
-        request.session["cart"] = json.dumps([data["id"]])
-    print(request.session.get('cart'))
-    return HttpResponse("Success")
-
 
 def pizzas(request):
     flag = False
