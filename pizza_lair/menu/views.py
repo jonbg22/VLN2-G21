@@ -4,6 +4,7 @@ from menu.models import Pizza, Side, Drink, PizzaCategory, Product
 from django.core import serializers
 import json
 
+
 def addToCart(request):
     print(request.method)
     if request.method == "GET":
@@ -29,7 +30,6 @@ def pizzas(request):
     flag = False
     filtered_pizzas = []
     all_pizzas = Pizza.objects.all()
-    print(request.GET.keys())
     if request.GET.get('search') not in [None, ""]:
         flag = True
         search = request.GET['search']
@@ -37,7 +37,8 @@ def pizzas(request):
     if request.GET.get('filter') not in [None, ""]:
         flag = True
         category_filter = request.GET['filter']
-        all_pizzas = all_pizzas.filter(category__name=category_filter)
+        if category_filter != "Any":
+            all_pizzas = all_pizzas.filter(category__name=category_filter)
     if request.GET.get('orderBy') not in [None, ""]:
         flag = True
         order_by = request.GET['orderBy']
@@ -54,7 +55,7 @@ def pizzas(request):
 
     if flag:
         for pizza in all_pizzas:
-            selected_pizza = {'id': pizza.id, 'prod': serializers.serialize('json', [pizza.prod, ])}
+            selected_pizza = {'id': pizza.id, 'prod_id': pizza.prod_id, 'prod': serializers.serialize('json', [pizza.prod, ])}
             filtered_pizzas.append(selected_pizza)
         return JsonResponse({'data': filtered_pizzas})
 

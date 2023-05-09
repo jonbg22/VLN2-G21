@@ -7,13 +7,13 @@
         <div id="pizza-orderby">
             <label for="pizza-orderby-selector">Order by: </label>
             <select id="pizza-orderby-selector">
-                <option selected>Name</option>
-                <option>Price</option>
+                <option class="orderby-option" selected>Name</option>
+                <option class="orderby-option">Price</option>
             </select>
             <input class="orderdir" type="radio" name="orderdir" id="asc" value="ascending" checked>
             <label class="orderdir-label" for="asc">&#8593;</label>
-            <input class="orderdir" type="radio" name="orderdir" id="descending" value="descending">
-            <label class="orderdir-label" for="asc">&#8595;</label>
+            <input class="orderdir" type="radio" name="orderdir" id="desc" value="descending">
+            <label class="orderdir-label" for="desc">&#8595;</label>
 
         </div>
         <div id="pizza-search">
@@ -23,13 +23,15 @@
         </div>
         <div id="pizza-filters">
             <span>Filter</span>
-            <input class="filter" id="filter-new" type="checkbox" name="category" value="New">
+            <input checked class="filter" id="filter-any" type="radio" name="category" value="Any">
+            <label class="filter-label" for="filter-any">Any</label>
+            <input class="filter" id="filter-new" type="radio" name="category" value="New">
             <label class="filter-label" for="filter-new">New</label>
-            <input class="filter" id="filter-spicy" type="checkbox" name="category" value="Spicy">
+            <input class="filter" id="filter-spicy" type="radio" name="category" value="Spicy">
             <label class="filter-label" for="filter-spicy">Spicy</label>
-            <input class="filter" id="filter-vegan" type="checkbox" name="category" value="Vegan">
+            <input class="filter" id="filter-vegan" type="radio" name="category" value="Vegan">
             <label class="filter-label" for="filter-vegan">Vegan</label>
-            <input class="filter" id="filter-vegetarian" type="checkbox" name="category" value="Vegetarian">
+            <input class="filter" id="filter-vegetarian" type="radio" name="category" value="Vegetarian">
             <label class="filter-label" for="filter-vegetarian">Vegetarian</label>
         </div>
     </div>
