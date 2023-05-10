@@ -92,3 +92,7 @@ a {
     background-color: grey;
     border: solid 2px rgba(155, 155, 155, .5);
 }
+
+img.profile-image{
+    height: 50px;
+}
