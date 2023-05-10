@@ -4,6 +4,7 @@
     <h1 class="offer-dname">{{ offer.name }}</h1>
     <hr class="offer-line">
     <p class="offer-desc">{{ offer.desc }}</p>
+    <hr class="offer-line">
     <form id="offer" method="post" action="{% url 'offer_details' offer.id %}">
     {% csrf_token %}
     {% for i in pizza_amount %}
@@ -15,7 +16,7 @@
         </select>
     {% endfor %}
     {% for j in sides_amount %}
-        <h3>Select sides {{ j }}</h3>
+        <h2>Select sides {{ j }}</h2>
         <select style="width: 150px" name="sides" id="sides">
             {% for side in sides %}
                 <option value="{{ side.prod.id }}">{{ side.prod.name }}</option>
@@ -23,7 +24,7 @@
         </select>
     {% endfor %}
     {% for k in drinks_amount %}
-        <h4>Select drink {{ k }}</h4>
+        <h2>Select drink {{ k }}</h2>
         <select style="width: 150px" name="drinks" id="drinks">
             {% for drink in drinks %}
                 <option value="{{ drink.prod.id }}">{{ drink.prod.name }}</option>

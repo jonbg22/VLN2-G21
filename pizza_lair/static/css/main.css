@@ -3,9 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-a:hover {
-    color: red;
-}
 
 a {
     text-decoration: none;
@@ -79,6 +76,10 @@ header {
     text-align: center;
     font-size: 2rem;
     margin: auto;
+    transition: 1ms;
+}
+#nav-center:hover {
+    font-size: 2.5rem;
 }
 
 

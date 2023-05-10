@@ -16,23 +16,15 @@
                 logout
                 </a>
                 <a href="{% url 'profile' %}">
-                profile
+                <img src="{{ user.profile.profile_image }}" class="profile-image"/>
                 </a>
             </div>
 
         {% else %}
             <div class="nav-right">
             <a href="{% url 'login' %}">
-                login
+                <img src="/static/images/profile.svg" class="nav-icon cart-icon">
             </a>
-            <a href="{% url 'register' %}">
-                register
-            </a>
-            </div>
-        {% endif %}
-        {% if user.is_authenticated %}
-            <div class="nav-right">
-            <img src="{{ user.profile.profile_image }}" class="profile-image"/>
             </div>
         {% endif %}
     </nav>
