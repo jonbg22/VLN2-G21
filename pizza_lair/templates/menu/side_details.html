@@ -4,5 +4,5 @@
     <h1>{{ side.prod.name }}</h1>
     <p>{{ side.prod.desc }}</p>
     </ul>
-    <button>Add to Cart</button>
+    <button onclick="addToCart({{ side.prod.id }})">Add to Cart</button>
 {% endblock %}

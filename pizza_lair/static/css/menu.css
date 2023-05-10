@@ -93,7 +93,10 @@ a {
 
 
 #menu-nav {
+    position: sticky;
+    top: 83px;
     display: flex;
+    background: white;
     padding: 1em;
     border-bottom: 1px solid grey;
     font-size: 1.3rem;

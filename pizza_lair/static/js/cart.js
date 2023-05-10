@@ -41,4 +41,8 @@ const clearSession = async() => {
     })
 }
 
+const deleteItem = (itemID) => {
+
+}
+
 $('#clear-cart-btn').click(clearSession);

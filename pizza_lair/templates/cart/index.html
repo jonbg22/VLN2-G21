@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    {% load static %}
     <div class="cart">
         <h2>Welcome to my cart</h2>
     <div class="cart-items">
@@ -10,6 +11,7 @@
             <div class="cart-item">
                 <p>{{ product.item.name }}</p>
                 <p>- {{ product.count }} +</p>
+                <img onclick="deleteItem({{ product.prod_id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
 
             </div>
         {% endfor %}
