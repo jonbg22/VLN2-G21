@@ -52,6 +52,7 @@
 
 input[name="category"]:checked + label {
     background: red;
+    border-radius: 5px;
 }
 
 
