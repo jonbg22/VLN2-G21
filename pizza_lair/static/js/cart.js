@@ -28,7 +28,7 @@ const getCookie = (name) => {
 
 const clearSession = async() => {
     const csrftoken = getCookie("csrftoken");
-    $.ajax('/cart/addToCart', {
+    $.ajax('/cart/delCart', {
         method: "DELETE",
         headers: {
          'X-CSRFToken': csrftoken,
@@ -42,7 +42,25 @@ const clearSession = async() => {
 }
 
 const deleteItem = (itemID) => {
+    const csrftoken = getCookie("csrftoken");
+    $.ajax('/cart/delCart/'+itemID, {
+        method: "DELETE",
+        headers: {
+         'X-CSRFToken': csrftoken,
+        },
+        success: ()=> {
+            console.log("Deleting Item");
+            $('.cart-item').each(function (ind) {
+                if (parseInt($(this).attr("data-id")) === itemID) {
+                    $(this).remove()
+                }
+                if ($('.cart-items').html === "") {
+                    $('.cart-items').html('<h3>Cart is empty</h3>');
+                }
+            })
 
+        }
+    })
 }
 
 $('#clear-cart-btn').click(clearSession);
