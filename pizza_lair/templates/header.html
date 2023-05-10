@@ -15,6 +15,9 @@
                 <a href="{% url 'logout' %}">
                 logout
                 </a>
+                <a href="{% url 'profile' %}">
+                profile
+                </a>
             </div>
 
         {% else %}
@@ -25,6 +28,11 @@
             <a href="{% url 'register' %}">
                 register
             </a>
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <div class="nav-right">
+            <img src="{{ user.profile.profile_image }}" class="profile-image"/>
             </div>
         {% endif %}
     </nav>
