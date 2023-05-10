@@ -4,6 +4,7 @@
     <h1 class="offer-dname">{{ offer.name }}</h1>
     <hr class="offer-line">
     <p class="offer-desc">{{ offer.desc }}</p>
+    <hr class="offer-line">
     <form id="offer" method="post" action="{% url 'offer_details' offer.id %}">
     {% csrf_token %}
     {% for i in pizza_amount %}

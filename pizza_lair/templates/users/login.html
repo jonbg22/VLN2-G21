@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div id="login">
     <form method="post" class="form from-horizontal">
         {% csrf_token %}
         {{ form }}
@@ -8,4 +9,5 @@
             <button type="button">register</button>
         </a>
     </form>
+    </div>
 {% endblock %}
