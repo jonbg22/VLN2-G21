@@ -12,14 +12,16 @@
                 <a href="/cart/">
                     <img src="/static/images/shoppingcart.svg" class="nav-icon cart-icon">
                 </a>
-                <a href="{% url 'logout' %}">
-                logout
-                </a>
-                <a href="{% url 'profile' %}">
-                <img src="{{ user.profile.profile_image }}" class="profile-image"/>
-                </a>
-            </div>
-
+                {%if user.profile.profile_image == "" %}
+                    <a href="{% url 'profile' %}">
+                    <img src="/static/images/profile.svg" class="profile-image"/>
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile' %}">
+                    <img src="{{ user.profile.profile_image }}" class="profile-image"/>
+                    </a>
+                </div>
+                {% endif %}
         {% else %}
             <div class="nav-right">
             <a href="{% url 'login' %}">
