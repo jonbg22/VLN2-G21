@@ -4,5 +4,5 @@
     <h1>{{ drink.prod.name }}</h1>
     <p>{{ drink.prod.desc }}</p>
     </ul>
-    <button>Add to Cart</button>
+    <button onclick="addToCart({{ drink.prod.id }})">Add to Cart</button>
 {% endblock %}
