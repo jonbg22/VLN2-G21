@@ -4,11 +4,13 @@
     <h1 class="offer-dname">{{ offer.name }}</h1>
     <hr class="offer-line">
     <p class="offer-desc">{{ offer.desc }}</p>
+    <form id="offer" method="post" action="{% url 'offer_details' offer.id %}">
+    {% csrf_token %}
     {% for i in pizza_amount %}
         <h2>Select Pizza {{ i }}</h2>
         <select style="width: 150px" name="pizzas" id="pizzas">
             {% for pizza in pizzas %}
-                <option value="{{ pizza.prod.name }}">{{ pizza.prod.name }}</option>
+                <option value="{{ pizza.prod.id }}">{{ pizza.prod.name }}</option>
             {% endfor %}
         </select>
     {% endfor %}
@@ -16,7 +18,7 @@
         <h3>Select sides {{ j }}</h3>
         <select style="width: 150px" name="sides" id="sides">
             {% for side in sides %}
-                <option value="{{ side.prod.name }}">{{ side.prod.name }}</option>
+                <option value="{{ side.prod.id }}">{{ side.prod.name }}</option>
             {% endfor %}
         </select>
     {% endfor %}
@@ -24,11 +26,12 @@
         <h4>Select drink {{ k }}</h4>
         <select style="width: 150px" name="drinks" id="drinks">
             {% for drink in drinks %}
-                <option value="{{ drink.prod.name }}">{{ drink.prod.name }}</option>
+                <option value="{{ drink.prod.id }}">{{ drink.prod.name }}</option>
             {% endfor %}
         </select>
     {% endfor %}
-    <button>Add to Cart</button>
+    <button type="submit" value="Submit">Add to Cart</button>
+    </form>
     </div>
 {% endblock %}
 

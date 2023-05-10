@@ -9,6 +9,9 @@ def index(request):
 
 
 def get_offer_by_id(request, id):
+    if request.method == 'POST':
+        print(request.POST)
+        request.POST['pizzas']
     offer = get_object_or_404(Offer, pk=id)
     pizza_amount = []
     for i in range(offer.amountPizza):
