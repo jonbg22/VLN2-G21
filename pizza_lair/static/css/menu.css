@@ -36,13 +36,18 @@
     height: 300px;
     min-width: 200px;
     border: 1px solid grey;
+    border-radius: 6%;
 }
 
 
 .filter {
+    display: none;
     height: 20px;
     width: 50px;
     background: red;
+}
+.filter-label {
+    margin: 0 1rem;
 }
 
 input[name="category"]:checked + label {
@@ -52,14 +57,15 @@ input[name="category"]:checked + label {
 
 #pizza-filters label, #pizza-orderby {
     cursor: pointer;
-
 }
 
 #filter-container {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-flow: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+#filter-container > div {
+    margin: auto;
 }
 
 #pizza-filters {
@@ -67,11 +73,17 @@ input[name="category"]:checked + label {
     flex-flow: row nowrap;
 }
 
-.orderdir {
-    opacity: 0.011;
+.orderdir:checked + .orderdir-label{
+    color: red;
 }
+
+.orderdir {
+    display: none;
+}
+
 .orderdir-label {
     cursor: pointer;
+    font-size: 1.3rem;
 }
 
 /* Might remove */

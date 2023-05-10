@@ -18,8 +18,9 @@ $(document).ready(function () {
             success: function (resp) {
                 const newHTML = resp.data.map(d => {
                     let prod = JSON.parse(d.prod)[0].fields;
-                    return `<div class="pizza" data-id="${prod.id}">
-                        <a href="/menu/pizzas/${prod.id}">
+                    console.log(prod);
+                    return `<div class="pizza" data-id="${d.prod_id}">
+                        <a href="/menu/pizzas/${d.prod_id}">
                         <img class="pizza-img" src="${prod.imgLink}">
                         <h2 class="pizza-name">${prod.name}</h2>
                         <hr class="pizza-line">
@@ -40,9 +41,9 @@ $(document).ready(function () {
 
 
     $('#pizza-search-btn').click(updatePizzas)
-    $('.filter').click(function (e) {
-        if (e.target.checked) e.target.checked = false;
-        updatePizzas();
-    });
+    $('.filter').click(updatePizzas);
+    $('.orderdir').click(updatePizzas);
+    $('#pizza-orderby-selector').on('input',updatePizzas);
+
 
 });

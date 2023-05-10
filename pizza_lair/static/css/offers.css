@@ -21,15 +21,21 @@
     height: 60px;
 
 }
-#offerholder {
-    text-align: center;
+
+.offer-line {
+    width: 80%;
+    margin: 1em auto;
+}
+.offer-price {
+    font-size: 1.3rem;
 }
 
+
 #offerinfo {
+    align-self: center;
     padding: 10px;
-    display: inline-block;
     flex-flow: column;
-    margin: 1em;
+    margin: auto;
     text-align: center;
     background: whitesmoke;
     height: auto;
@@ -38,17 +44,12 @@
     width: 45%;
     vertical-align: top;
 }
-#offerselection {
-    padding: 10px;
-    display: inline-block;
-    flex-flow: column;
-    margin: 1em;
-    text-align: center;
-    background: whitesmoke;
-    height: 700px;
-    border: 1px solid grey;
-    border-radius: 5px;
-    width: 45%;
-    vertical-align: top;
+
+.offer-dname {
+    font-style: oblique;
+    margin: 4rem;
+}
+offer-desc {
+    margin: 30rem;
 }
 
