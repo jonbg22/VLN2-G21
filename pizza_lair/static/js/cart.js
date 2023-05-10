@@ -41,9 +41,9 @@ const clearSession = async() => {
     })
 }
 
-const deleteItem = (itemID) => {
+const deleteItem = (itemID, all = true) => {
     const csrftoken = getCookie("csrftoken");
-    $.ajax('/cart/delCart/'+itemID, {
+    $.ajax('/cart/delCart/'+itemID+"?all="+all, {
         method: "DELETE",
         headers: {
          'X-CSRFToken': csrftoken,
@@ -52,7 +52,12 @@ const deleteItem = (itemID) => {
             console.log("Deleting Item");
             $('.cart-item').each(function (ind) {
                 if (parseInt($(this).attr("data-id")) === itemID) {
-                    $(this).remove()
+                    if (all) {
+                        $(this).remove();
+                    } else {
+                        const counter = $(this).children('.product-counter').children('.product-count');
+                        counter.text(parseInt(counter.text())-1);
+                    }
                 }
                 if ($('.cart-items').html === "") {
                     $('.cart-items').html('<h3>Cart is empty</h3>');
@@ -61,6 +66,21 @@ const deleteItem = (itemID) => {
 
         }
     })
+}
+
+const incrementItem = async (dir, itemID,prodID) => {
+    if (dir === "+") {
+        await addToCart(prodID);
+        $('.cart-item').each(function (ind) {
+            if (parseInt($(this).attr("data-id")) === itemID) {
+                const counter = $(this).children('.product-counter').children('.product-count');
+                counter.text(parseInt(counter.text())+1);
+            }
+        })
+
+    } else if (dir === "-") {
+        deleteItem(itemID,false);
+    }
 }
 
 $('#clear-cart-btn').click(clearSession);

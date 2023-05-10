@@ -2,7 +2,7 @@
     width: 60%;
     margin: 1rem auto;
     padding: 1rem;
-    background-color: whitesmoke;
+    background-color: white;
     border: solid 1px black;
     border-radius: 10px;
 }
@@ -14,9 +14,14 @@
 }
 
 .cart-item {
+    padding: 1.5rem;
+    background: whitesmoke;
     display: flex;
     margin: 0.5rem;
     font-size: 1.2rem;
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
 }
 .cart-item p {
     margin: 0 0.5em;
@@ -24,15 +29,32 @@
 
 .product-counter {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-minus, .product-plus {
+    font-size: 1.5rem;
+    width: 20px;
+    border: none;
+    background: none;
+}
+
+
+.product-minus:hover {
+    color: red;
+}
+.product-plus:hover {
+    color: green;
 }
 
 .product-count {
     border: 2px solid black;
-    width: 27px;
-    height: 23px;
+    width: 30px;
+    height: 26px;
     margin: 0 5px;
+    font-size: 1.1rem;
     display: flex;
-    font-size: 0.9rem;
     justify-content: center;
     align-items: center;
 }

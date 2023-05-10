@@ -4,16 +4,17 @@
         <h2 class="cart-header">Cart</h2>
     <div class="cart">
     <div class="cart-items">
+    {% csrf_token %}
     {% if not cart %}
         <h3>Cart is empty</h3>
     {% else %}
         {% for product in cart %}
-            <div class="cart-item" data-id="{{ product.id }}">
+            <div class="cart-item" data-id="{{ product.id }}" data-prodid="{{ product.prod_id }}">
                 <p>{{ product.item.name }}</p>
                 <div class="product-counter">
-                    <div class="product-minus">-</div>
+                    <button onclick="incrementItem('-', {{ product.id }}, {{ product.prod_id }})" class="product-minus">-</button>
                     <div class="product-count">{{ product.count }}</div>
-                    <div class="product-plus">+</div>
+                    <button onclick="incrementItem('+', {{ product.id }}, {{ product.prod_id }})" class="product-plus">+</button>
                 </div>
                 <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
 
