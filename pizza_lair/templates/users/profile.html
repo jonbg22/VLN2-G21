@@ -5,6 +5,10 @@
       {% csrf_token %}
       {{ form }}
       <input type="submit" class="btn btn-primary" value="Update"/>
+      </a>
+      <a href="{% url 'logout' %}">
+          <button type="button">logout</button>
+      </a>
   </form>
 
 {% endblock %}

@@ -4,5 +4,8 @@
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-primary" value="Login"/>
+        <a href="{% url 'register' %}">
+            <button type="button">register</button>
+        </a>
     </form>
 {% endblock %}

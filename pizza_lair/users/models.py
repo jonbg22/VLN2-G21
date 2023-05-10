@@ -6,8 +6,8 @@ from django_countries.fields import CountryField
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_image = models.CharField(max_length=9999)
-    zip = models.IntegerField()
+    profile_image = models.CharField(max_length=9999, default="/static/images/profile.svg")
+    zip = models.IntegerField(max_length=9999)
     city = models.CharField(max_length=9999)
     country = CountryField(max_length=9999)
     street = models.CharField(max_length=9999)
