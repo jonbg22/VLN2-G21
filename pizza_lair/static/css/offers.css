@@ -24,6 +24,12 @@
     height: 300px;
     border: 1px solid grey;
     border-radius: 5px;
+    transition: height 1s;
+}
+
+.offer:hover {
+
+    height: 303px;
 }
 
 .offer-name {

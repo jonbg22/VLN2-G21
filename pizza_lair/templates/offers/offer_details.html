@@ -15,7 +15,7 @@
         </select>
     {% endfor %}
     {% for j in sides_amount %}
-        <h3>Select sides {{ j }}</h3>
+        <h2>Select sides {{ j }}</h2>
         <select style="width: 150px" name="sides" id="sides">
             {% for side in sides %}
                 <option value="{{ side.prod.id }}">{{ side.prod.name }}</option>
@@ -23,7 +23,7 @@
         </select>
     {% endfor %}
     {% for k in drinks_amount %}
-        <h4>Select drink {{ k }}</h4>
+        <h2>Select drink {{ k }}</h2>
         <select style="width: 150px" name="drinks" id="drinks">
             {% for drink in drinks %}
                 <option value="{{ drink.prod.id }}">{{ drink.prod.name }}</option>
