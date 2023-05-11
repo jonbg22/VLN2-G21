@@ -1,4 +1,4 @@
 
 
-class CheckoutForm(ModelForm):
+class CheckoutForm():
     pass
