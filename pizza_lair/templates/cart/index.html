@@ -48,7 +48,9 @@
                 {% endfor %}
             {% endif %}
             <button type="button" id="clear-cart-btn">Clear</button>
+        <a href="{% url 'checkout'%}">
             <button type="button" id="checkout-cart-btn">Checkout</button>
+        </a>
         </div>
     </div>
 {% endblock %}
