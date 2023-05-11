@@ -5,6 +5,8 @@
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
-
+    <a href="{% url 'index' %}">
+    <button type="button">return</button>
+    </a>
     </form>
 {% endblock %}
