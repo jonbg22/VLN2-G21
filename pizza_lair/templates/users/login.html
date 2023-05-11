@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div id="login">
+    <h1>Login</h1>
     <form method="post" class="form from-horizontal">
         {% csrf_token %}
         {{ form }}

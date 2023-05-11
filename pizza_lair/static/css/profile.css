@@ -84,3 +84,15 @@ form .txt_field{
     width: 30%;
     vertical-align: top;
 }
+
+.form-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+label {
+    display: flex;
+}
+
