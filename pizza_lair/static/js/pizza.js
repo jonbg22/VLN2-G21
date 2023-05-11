@@ -19,14 +19,14 @@ $(document).ready(function () {
                 const newHTML = resp.data.map(d => {
                     let prod = JSON.parse(d.prod)[0].fields;
                     console.log(prod);
-                    return `<div class="pizza" data-id="${d.prod_id}">
-                        <a href="/menu/pizzas/${d.prod_id}">
-                        <img class="pizza-img" src="${prod.imgLink}">
-                        <h2 class="pizza-name">${prod.name}</h2>
-                        <hr class="pizza-line">
-                        <p class="pizza-price">$${Math.round(prod.price)}</p>
-                        </a>
-                    </div>`
+                    return `<div class="product" data-id="${d.prod_id}">
+                            <a href="/menu/pizzas/${d.prod_id}">
+                                <img class="product-img" src="${prod.imgLink}">
+                                <h2 class="product-name">${prod.name}</h2>
+                                <hr class="product-line">
+                                <p class="product-price">$${Math.round(prod.price)}</p>
+                            </a>
+                            </div>`
                 });
                 $('#pizzas').html(newHTML.join(''));
                 console.log(newHTML);

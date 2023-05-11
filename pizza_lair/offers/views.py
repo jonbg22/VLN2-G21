@@ -5,7 +5,8 @@ from json import loads, dumps
 # Create your views here.
 def index(request):
     return render(request, 'offers/offers.html', {
-        'offers': Offer.objects.all()
+        'offers': Offer.objects.all(),
+        'url': f'/offers'
     })
 
 
@@ -31,6 +32,7 @@ def get_offer_by_id(request, id):
         request.session["cart"] = dumps(cart_list)
 
     offer = get_object_or_404(Offer, pk=id)
+    print("OFFER:",offer)
     pizza_amount = []
     for i in range(offer.amountPizza):
         i = i+1

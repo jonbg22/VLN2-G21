@@ -40,7 +40,8 @@ def pizzas(request):
         return JsonResponse({'data': filtered_pizzas})
 
     return render(request, 'menu/pizzas.html', {
-        'pizzas': Pizza.objects.select_related("prod")
+        'pizzas': Pizza.objects.select_related("prod"),
+        'url': f'/menu/pizzas'
     })
 
 
@@ -50,13 +51,14 @@ def get_pizza_by_id(request, id):
         print(request.session.get('cart'))
 
     return render(request, 'menu/pizza_details.html', {
-        'pizza': get_object_or_404(Pizza, prod=id)
+        'pizza': get_object_or_404(Pizza, prod=id),
     })
 
 
 def sides(request):
     return render(request, 'menu/sides.html', {
-        'sides': Side.objects.select_related("prod")
+        'sides': Side.objects.select_related("prod"),
+        'url': f'/menu/sides'
     })
 
 
@@ -68,7 +70,8 @@ def get_side_by_id(request, id):
 
 def drinks(request):
     return render(request, 'menu/drinks.html', {
-        'drinks': Drink.objects.select_related("prod")
+        'drinks': Drink.objects.select_related("prod"),
+        'url': f'/menu/drinks'
     })
 
 

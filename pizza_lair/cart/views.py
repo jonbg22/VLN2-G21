@@ -61,6 +61,7 @@ def delete_item(request, item_id):
 
 
 def index(request):
+    # uncomment line to clear cart manually
     # del request.session['cart']
     cart = []
     if request.session.get('cart'):
