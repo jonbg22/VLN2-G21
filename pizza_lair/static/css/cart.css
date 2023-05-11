@@ -27,6 +27,41 @@
     margin: 0 0.5em;
 }
 
+
+.cart-item-offer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cart-offer-wrapper {
+    padding: 1.5rem;
+    background: whitesmoke;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.cart-offer-details {
+    display: none;
+    font-size: 0.9rem;
+    margin: 0.6rem;
+}
+
+.cart-offer-list {
+    margin: 6px;
+}
+
+
+.expand-details {
+    background: whitesmoke;
+    padding: 5px 10px;
+    border: none;
+}
+.expand-details:hover, .active {
+    background: white;
+}
+
+
 .product-counter {
     display: flex;
     justify-content: center;

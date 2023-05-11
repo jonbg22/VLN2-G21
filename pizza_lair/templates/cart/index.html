@@ -3,25 +3,52 @@
     {% load static %}
         <h2 class="cart-header">Cart</h2>
     <div class="cart">
-    <div class="cart-items">
-    {% csrf_token %}
-    {% if not cart %}
-        <h3>Cart is empty</h3>
-    {% else %}
-        {% for product in cart %}
-            <div class="cart-item" data-id="{{ product.id }}" data-prodid="{{ product.prod_id }}">
-                <p>{{ product.item.name }}</p>
-                <div class="product-counter">
-                    <button onclick="incrementItem('-', {{ product.id }}, {{ product.prod_id }})" class="product-minus">-</button>
-                    <div class="product-count">{{ product.count }}</div>
-                    <button onclick="incrementItem('+', {{ product.id }}, {{ product.prod_id }})" class="product-plus">+</button>
-                </div>
-                <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
-            </div>
-        {% endfor %}
-    {% endif %}
-    </div>
-    <button type="button" id="clear-cart-btn">Clear</button>
-    <button type="button" id="checkout-cart-btn">Checkout</button>
+        <div class="cart-items">
+            {% csrf_token %}
+            {% if not cart %}
+                <h3>Cart is empty</h3>
+            {% else %}
+                {% for product in cart %}
+                    {% if product.type == "Product" %}
+                    <div class="cart-item" data-id="{{ product.id }}" data-prodid="{{ product.prod_id }}">
+                        <p>{{ product.item.name }}</p>
+                        <div class="product-counter">
+                            <button onclick="incrementItem('-', {{ product.id }}, {{ product.prod_id }})" class="product-minus">-</button>
+                            <div class="product-count">{{ product.count }}</div>
+                            <button onclick="incrementItem('+', {{ product.id }}, {{ product.prod_id }})" class="product-plus">+</button>
+                        </div>
+                        <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
+                    </div>
+                    {% elif product.type == "Offer" %}
+                    <div class="cart-offer-wrapper">
+                        <div class="cart-item-offer">
+                            <p>{{ product.name }}</p>
+                            <button class="expand-details">Details ▼</button>
+                        <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
+                        </div>
+                    <div class="cart-offer-details">
+                            <div class="cart-offer-list">
+                                {% for pizza in product.pizzas %}
+                                {{ pizza.prod.name }}
+                                {% endfor %}
+                            </div>
+                            <div class="cart-offer-list">
+                                {% for side in product.sides %}
+                                {{ side.prod.name }}
+                                {% endfor %}
+                            </div>
+                            <div class="cart-offer-list">
+                                {% for drink in product.drinks %}
+                                {{ drink.prod.name }}
+                                {% endfor %}
+                            </div>
+                    </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <button type="button" id="clear-cart-btn">Clear</button>
+            <button type="button" id="checkout-cart-btn">Checkout</button>
+        </div>
     </div>
 {% endblock %}
