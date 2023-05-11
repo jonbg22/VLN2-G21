@@ -2,16 +2,9 @@
 
 {% block content %}
     <h1 class="offer-header">Offers</h1>
-    <div id="offers">
+    <div class="product-wrapper">
         {% for offer in offers %}
-            <div class="offer" data-id="{{ offer.id }}">
-            <a href="{% url 'offer_details' offer.id %}">
-            <img class="pizza-img" src="{{ offer.imgLink }}">
-            <h2 class="offer-name">{{ offer.name }}</h2>
-                <hr class="offer-line">
-                <p class="offer-price">${{ offer.price | floatformat }}</p>
-            </a>
-            </div>
+            {% include 'single_offer.html' with offer=offer url=url %}
         {% endfor %}
 
     </div>

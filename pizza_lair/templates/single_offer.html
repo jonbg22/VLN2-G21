@@ -1,0 +1,8 @@
+<div class="product" data-id="{{ offer.id }}">
+<a href="{{ url }}/{{ offer.id }}">
+    <img class="product-img" src="{{ offer.imgLink  }}">
+    <h2 class="product-name">{{ offer.name }}</h2>
+    <hr class="product-line">
+    <p class="product-price">${{ offer.price | floatformat }}</p>
+</a>
+</div>
