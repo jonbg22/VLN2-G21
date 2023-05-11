@@ -93,4 +93,4 @@ def index(request):
     })
 
 def checkout(request):
-    pass
+    return render(request, 'cart/checkout.html')
