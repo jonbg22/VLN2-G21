@@ -3,23 +3,27 @@
     <title>{{ pizza.prod.name }}</title>
 {% endblock %}
 {% block content %}
+    <div id="pizza-details">
     <img alt="Picture of a pizza" width="300px" height="300px" src="{{ pizza.prod.imgLink }}">
+    <h1>{{ pizza.prod.name }}</h1>
+    <p>${{ pizza.prod.price | floatformat }}</p>
+    <p>{{ pizza.prod.desc }}</p>
     <div id="pizza-categories">
     <h3>Categories:</h3>
     <ul>
     {% for cat in pizza.category.all %}
-        <li>{{ cat.name }}</li>
+        <p>{{ cat.name }}</p>
     {% endfor %}
     </ul>
     </div>
-    <h1>{{ pizza.prod.name }}</h1> <p>${{ pizza.prod.price | floatformat }}</p>
-    <p>{{ pizza.prod.desc }}</p>
+
     <h2>Ingredients</h2>
     <ul>
     {% for topping in pizza.toppings.all %}
-        <li>{{ topping.name }}</li>
+        <p>{{ topping.name }}</p>
     {% endfor %}
     </ul>
     {% csrf_token %}
     <button onclick="addToCart({{ pizza.prod.id }})">Add to Cart</button>
+    </div>
 {% endblock %}
