@@ -108,12 +108,14 @@ def checkout(request):
     })
 
 def payment(request):
+    form = PaymentForm()
     if request.method == "POST":
+        print(request.POST)
         form = PaymentForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect("/review")
+            return render(request, 'cart/review.html')
 
-    form = PaymentForm()
+
     return render(request, 'cart/payment.html', {'form': form})
 
 def review(request):

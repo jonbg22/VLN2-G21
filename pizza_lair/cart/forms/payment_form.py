@@ -3,6 +3,6 @@ from creditcards.forms import CardNumberField, CardExpiryField, SecurityCodeFiel
 
 class PaymentForm(forms.Form):
     name_on_card = forms.CharField(max_length=50, required=True)
-    card_number = CardNumberField(required=True)
+    card_number = forms.IntegerField(max_length=16, min_length=16, required=True)
     expiry_date = CardExpiryField(required=True)
-    card_code = SecurityCodeField(required=True)
+    cvc = SecurityCodeField(required=True)
