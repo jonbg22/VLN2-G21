@@ -7,7 +7,7 @@ from menu.models import Product, Pizza, Side, Drink
 from offers.models import Offer
 from users.models import Profile
 from enum import Enum
-from forms.payment_form import PaymentForm
+from .forms.payment_form import PaymentForm
 
 def add_to_cart(request):
     if not request.method == "POST":
@@ -107,8 +107,8 @@ def checkout(request):
     })
 
 def payment(request):
-    
-    return render(request, 'cart/payment.html')
+    form = PaymentForm
+    return render(request, 'cart/payment.html', {'form': form})
 
 def review(request):
     return render(request, 'cart/review.html')
