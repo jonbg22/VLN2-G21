@@ -28,7 +28,7 @@ const getCookie = (name) => {
 
 const clearSession = async() => {
     const csrftoken = getCookie("csrftoken");
-    $.ajax('/cart/delCart', {
+    $.ajax('/cart/clearCart', {
         method: "DELETE",
         headers: {
          'X-CSRFToken': csrftoken,
@@ -84,3 +84,15 @@ const incrementItem = async (dir, itemID,prodID) => {
 }
 
 $('#clear-cart-btn').click(clearSession);
+
+
+$('.expand-details').click(function () {
+    $(this).toggleClass("active");
+
+    if ($(this).hasClass("active")) {
+        $(this).text("Details ▲")
+    } else {
+        $(this).text("Details ▼")
+    }
+    $(this).parent().next().toggle();
+})

@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from offers.models import Offer
 from menu.models import Pizza, Drink, Side
+from json import loads, dumps
 # Create your views here.
 def index(request):
     return render(request, 'offers/offers.html', {
@@ -11,7 +12,24 @@ def index(request):
 def get_offer_by_id(request, id):
     if request.method == 'POST':
         print(request.POST)
-        request.POST['pizzas']
+        cart_list = []
+        if request.session.get('cart'):
+            cart_list = loads(request.session.get('cart'))
+
+        item_id = 1
+        if len(cart_list) > 0:
+            item_id = max(cart_list, key=lambda x: x["id"])["id"] + 1
+
+        item = {"id": item_id, "offer_id": id, "type": "Offer"}
+        if request.POST.get("pizzas"):
+            item["pizzas"] = request.POST.getlist("pizzas")
+        if request.POST.get("sides"):
+            item["sides"] = request.POST.getlist("sides")
+        if request.POST.get("drinks"):
+            item["drinks"] = request.POST.getlist("drinks")
+        cart_list.append(item)
+        request.session["cart"] = dumps(cart_list)
+
     offer = get_object_or_404(Offer, pk=id)
     pizza_amount = []
     for i in range(offer.amountPizza):
