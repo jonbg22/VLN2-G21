@@ -94,3 +94,12 @@ def index(request):
 
 def checkout(request):
     return render(request, 'cart/checkout.html')
+
+def payment(request):
+    return render(request, 'cart/payment.html')
+
+def review(request):
+    return render(request, 'cart/review.html')
+
+def confirmation(request):
+    return render(request, 'cart/confirmation.html')

@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the checkout phase</h1>
+    <h1>This is the payment phase</h1>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
-    <a href="{% url 'index' %}">
+    <a href="{% url 'checkout' %}">
     <button type="button">return</button>
     </a>
-    <a  href="{% url 'payment' %}">
-        <button type="button">forward</button>
-    </a>
+   <a href="{% url 'review' %}">
+       <button type="button">forward</button>
+   </a>
     </form>
 {% endblock %}
