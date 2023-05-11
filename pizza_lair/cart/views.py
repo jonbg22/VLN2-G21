@@ -76,3 +76,6 @@ def index(request):
     return render(request, 'cart/index.html', {
         'cart': cart
     })
+
+def checkout(request):
+    pass

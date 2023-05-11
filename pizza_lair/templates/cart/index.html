@@ -17,11 +17,11 @@
                     <button onclick="incrementItem('+', {{ product.id }}, {{ product.prod_id }})" class="product-plus">+</button>
                 </div>
                 <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
-
             </div>
         {% endfor %}
     {% endif %}
     </div>
     <button type="button" id="clear-cart-btn">Clear</button>
+    <button type="button" id="checkout-cart-btn">Checkout</button>
     </div>
 {% endblock %}
