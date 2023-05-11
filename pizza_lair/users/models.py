@@ -5,6 +5,7 @@ from django_countries.fields import CountryField
 # Create your models here.
 
 class Profile(models.Model):
+    name = models.CharField(max_length=9999)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_image = models.CharField(max_length=9999)
     zip = models.IntegerField()
