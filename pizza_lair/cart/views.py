@@ -1,10 +1,11 @@
 import json
-
-from django.shortcuts import render
+from .forms.checkout_form import CheckoutForm
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotAllowed
 from json import loads, dumps
 from menu.models import Product, Pizza, Side, Drink
 from offers.models import Offer
+from users.models import Profile
 from enum import Enum
 from forms.payment_form import PaymentForm
 
@@ -93,7 +94,17 @@ def index(request):
     })
 
 def checkout(request):
-    return render(request, 'cart/checkout.html')
+    checkout = Profile.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = CheckoutForm(instance=checkout, data=request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect('profile')
+    return render(request, 'cart/checkout.html', {
+      'form': CheckoutForm(instance=checkout)
+    })
 
 def payment(request):
     
