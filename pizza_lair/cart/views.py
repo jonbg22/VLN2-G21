@@ -1,7 +1,7 @@
 import json
 from .forms.checkout_form import CheckoutForm
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseNotAllowed
+from django.http import HttpResponse, HttpResponseNotAllowed, HttpResponseRedirect
 from json import loads, dumps
 from menu.models import Product, Pizza, Side, Drink
 from offers.models import Offer
@@ -61,6 +61,7 @@ def delete_item(request, item_id):
 
 
 def index(request):
+    # uncomment line to clear cart manually
     # del request.session['cart']
     cart = []
     if request.session.get('cart'):
@@ -107,7 +108,14 @@ def checkout(request):
     })
 
 def payment(request):
-    form = PaymentForm
+    form = PaymentForm()
+    if request.method == "POST":
+        print(request.POST)
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            return render(request, 'cart/review.html')
+
+
     return render(request, 'cart/payment.html', {'form': form})
 
 def review(request):

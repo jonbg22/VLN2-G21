@@ -17,12 +17,11 @@
 
         </div>
         <div id="pizza-search">
-            <label for="pizza-search-input">Search: </label>
-            <input type="search" id="pizza-search-input">
+{#            <label for="pizza-search-input">Search: </label>#}
+            <input type="search" id="pizza-search-input" placeholder="Your search here..">
             <button type="button" id="pizza-search-btn">Search</button>
         </div>
         <div id="pizza-filters">
-            <span>Filter</span>
             <input checked class="filter" id="filter-any" type="radio" name="category" value="Any">
             <label class="filter-label" for="filter-any">Any</label>
             <input class="filter" id="filter-new" type="radio" name="category" value="New">
@@ -35,16 +34,9 @@
             <label class="filter-label" for="filter-vegetarian">Vegetarian</label>
         </div>
     </div>
-    <div id="pizzas">
+    <div class="product-wrapper" id="pizzas">
         {% for pizza in pizzas %}
-            <div class="pizza" data-id="{{ pizza.prod.id }}">
-                <a href="/menu/pizzas/{{ pizza.prod.id }}">
-                <img class="pizza-img" src="{{ pizza.prod.imgLink }}">
-                <h2 class="pizza-name">{{ pizza.prod.name }}</h2>
-                <hr class="pizza-line">
-                <p class="pizza-price">${{ pizza.prod.price | floatformat }}</p>
-            </a>
-            </div>
+            {% include 'single_product.html' with product=pizza %}
         {% endfor %}
 
     </div>

@@ -3,16 +3,9 @@
 {% block content %}
     {% include 'menu/menunavbar.html' %}
     <h1 class="sides-header">Sides</h1>
-    <div id="sides">
+    <div class="product-wrapper">
         {% for side in sides %}
-            <div class="side">
-            <a href="sides/{{ side.prod.id }}">
-                <img src="{{ side.prod.imgLink }}" class="side-img">
-                <h2 class="side-name">{{ side.prod.name }}</h2>
-                <hr class="side-line">
-                <p class="side-price">${{ side.prod.price | floatformat }}</p>
-            </a>
-            </div>
+            {% include 'single_product.html' with product=side url=url %}
         {% endfor %}
     </div>
 {% endblock %}
