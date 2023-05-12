@@ -9,6 +9,7 @@ from users.models import Profile
 from enum import Enum
 from .forms.payment_form import PaymentForm
 
+
 def add_to_cart(request):
     if not request.method == "POST":
         return HttpResponseNotAllowed(['POST'])
@@ -69,7 +70,7 @@ def index(request):
     cart_price = 0
     if request.session.get('cart'):
         for cart_item in loads(request.session.get('cart')):
-            print("CUR ITEM",cart_item)
+            print("CUR ITEM", cart_item)
             if cart_item["type"] == "Product":
                 prod_item = Product.objects.get(pk=cart_item["prod_id"])
                 item = {
@@ -90,8 +91,10 @@ def index(request):
                     "name": offer.name,
                     "type": "Offer",
                     "pizzas": [Pizza.objects.get(prod__id=prod_id) for prod_id in cart_item.get('pizzas', [])],
-                    "sides": [Side.objects.select_related("prod").get(prod__id=prod_id) for prod_id in cart_item.get('sides', [])],
-                    "drinks": [Drink.objects.select_related("prod").get(prod__id=prod_id) for prod_id in cart_item.get('drinks', [])],
+                    "sides": [Side.objects.select_related("prod").get(prod__id=prod_id) for prod_id in
+                              cart_item.get('sides', [])],
+                    "drinks": [Drink.objects.select_related("prod").get(prod__id=prod_id) for prod_id in
+                               cart_item.get('drinks', [])],
                 }
                 print("ITEM =", item)
                 print("CART ITEM =", cart_item)
@@ -101,6 +104,7 @@ def index(request):
         'cart': cart,
         'cart_price': cart_price
     })
+
 
 def checkout(request):
     checkout = Profile.objects.filter(user=request.user).first()
@@ -112,8 +116,9 @@ def checkout(request):
             profile.save()
             return redirect('profile')
     return render(request, 'cart/checkout.html', {
-      'form': CheckoutForm(instance=checkout)
+        'form': CheckoutForm(instance=checkout)
     })
+
 
 def payment(request):
     if request.method == "POST":
@@ -144,8 +149,10 @@ def payment(request):
     form.fields["cvc"].initial = card_cvc
     return render(request, 'cart/payment.html', {'form': form})
 
+
 def review(request):
     return render(request, 'cart/review.html')
+
 
 def confirmation(request):
     return render(request, 'cart/confirmation.html')

@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div id="review">
     <h1>This is the review phase</h1>
+
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
 
@@ -15,3 +17,4 @@
     </a>
     </form>
 {% endblock %}
+</div>
