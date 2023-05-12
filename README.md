@@ -12,39 +12,43 @@ The packages are inside the Requirements.txt file under Pizza Lair but they will
 
 ## Requirements
 
-*asgiref
-*Django
-*django-countries
-*django-credit-cards
-*psycopg2-binary
-*sqlparse
-*typing_extensions
-*tzdata
+-asgiref
+-Django
+-django-countries
+-django-credit-cards
+-psycopg2-binary
+-sqlparse
+-typing_extensions
+-tzdata
+
+## Aditional Requirements
+
+-User can save his information to speed up checkout.
+-There is a deal called pizza of the day that changes depending on what day it is.
+
+
 
 ## Programming Rules
 
-Here are the rules that we followed in the project, they have been tweaked a bit since the design report.
+Here are the rules that we followed in the project, they have been tweaked a bit since the design report. In the CSS, JS and python.
 
 Python
-*Split classes into separate files
-*Constants should be all caps
-*Two newlines after each function
+-Split classes into separate files
+-Two newlines after each function
 
 Javascript
-*Arrow functions used over normal functions
-*Two newlines after each function
-*Constants should be all caps
-*Indentations should be one tab
-*Everything inside curly brackets should be indented correctly
+-Two newlines after each function
+-Indentations should be one tab
+-Everything inside curly brackets should be indented correctly
 
 HTML
-*Proper semantics should be enforced
-*ID’s should be used over classes when appropriate
-*Everything inside an element should be indented with one tab
+-Proper semantics should be enforced
+-ID’s should be used over classes when appropriate
+-Everything inside an element should be indented with one tab
 
 CSS
-*One newlines between rules
-*Everything inside a rule must be indented with one tab
+-One newlines between rules
+-Everything inside a rule must be indented with one tab
 
 
 
