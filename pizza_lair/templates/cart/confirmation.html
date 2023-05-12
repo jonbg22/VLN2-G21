@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-    <h1 class="Confirmation-header">Order is now finished</h1>
-    <h2 class="Confirmation-text">Your pizzas are in the oven</h2>
-    </form>
+    <div class="confirmation">
+        <h1 class="Confirmation-header">Order received</h1>
+        <img class="confirmation-image" src="{% static 'images/cover.jpg' %}">
+        <h2 class="Confirmation-text">Your pizzas are in the oven</h2>
+    </div>
 {% endblock %}

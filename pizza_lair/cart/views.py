@@ -120,7 +120,7 @@ def checkout(request):
         'form': CheckoutForm(instance=checkout)
     })
 
-
+@login_required
 def payment(request):
     if request.method == "POST":
         form = PaymentForm(request.POST)
@@ -147,6 +147,7 @@ def payment(request):
     return render(request, 'cart/payment.html', {'form': form})
 
 
+@login_required
 def review(request):
     card_info = {
         'card_name': request.session['card_name'],
@@ -176,6 +177,10 @@ def review(request):
         'profile': Profile.objects.filter(user=request.user).first()
     })
 
-
+@login_required
 def confirmation(request):
+    del request.session['card_name'],
+    del request.session['card_num'],
+    del request.session['card_date'],
+    del request.session['card_cvc']
     return render(request, 'cart/confirmation.html')

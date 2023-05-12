@@ -3,14 +3,15 @@
 {% block content %}
     <div id="payment">
         <h1>Enter card details</h1>
-        <form class="form form-horizontal" method="post">
+        <form id="payment-form" class="form form-horizontal" method="post">
             {% csrf_token %}
             {{ form }}
+        <div class="payment-bottom">
         <a href="{% url 'checkout' %}">
-        <button type="button">back</button>
+        <button type="button">Back</button>
         </a>
             <input type="submit">
-
+        </div>
         </form>
     </div>
 {% endblock %}

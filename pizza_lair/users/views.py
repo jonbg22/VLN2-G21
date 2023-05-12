@@ -15,8 +15,6 @@ def register(request):
             form.save()
             return redirect('login')
     form = SignUpForm()
-    for x in form.fields:
-        pass
     return render(request, 'users/register.html', {
         'form': form
     })
