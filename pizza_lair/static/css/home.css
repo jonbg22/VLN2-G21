@@ -10,3 +10,10 @@
     text-align: center;
     margin: 1rem 0;
 }
+
+.todaysPizza {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}

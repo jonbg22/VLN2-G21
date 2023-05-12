@@ -4,8 +4,14 @@
     <div class="home-wrapper">
         <a href="{% url 'offer_details' 5 %}">
         <img src="https://clearcreektahoe.com/wp-content/uploads/Wide-Pizza.jpg" class="home-image">
-        </a>
+
     <h1 class="home-header">{{ weekday }}'s Pizza</h1>
+    <div class="todaysPizza">
+        <h2>{{ pizza.prod.name }}</h2>
+        <p>{{ pizza.prod.desc }}</p>
+        <img class="product-img" src="{{ pizza.prod.imgLink }}">
+    </div>
+    </a>
 
     </div>
 {% endblock %}

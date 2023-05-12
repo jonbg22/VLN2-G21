@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from offers.models import Offer
+from offers.models import Offer, get_todays_pizza
 from menu.models import Pizza, Drink, Side
 from json import loads, dumps
 # Create your views here.
@@ -45,12 +45,17 @@ def get_offer_by_id(request, id):
     for i in range(offer.amountDrinks):
         i = i+1
         drinks_amount.append(i)
+
+    if offer.name == "Pizza Of The Day":
+        pizzas = [get_todays_pizza()]
+    else:
+        pizzas = Pizza.objects.all()
     return render(request, 'offers/offer_details.html', {
         'offer': offer,
         'pizza_amount': pizza_amount,
         'sides_amount': sides_amount,
         'drinks_amount': drinks_amount,
-        "pizzas": Pizza.objects.all(),
+        "pizzas": pizzas,
         "drinks": Drink.objects.all(),
         "sides": Side.objects.all()
 
