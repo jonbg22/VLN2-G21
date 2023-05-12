@@ -10,7 +10,7 @@
         {% if user.is_authenticated %}
             <div class="nav-right">
                 <a href="/cart/">
-                    <img src="/static/images/shoppingcart.svg" class="nav-icon cart-icon">
+                    <img src="/static/images/shoppingcart.svg" class="nav-icon cart-icon non-empty">
                 </a>
                 {%if user.profile.profile_image == "" %}
                     <a href="{% url 'profile' %}">
