@@ -18,6 +18,6 @@ class ProfileForm(ModelForm):
         }
 
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(label='Username', min_length=5, max_length=150, widget=forms.TextInput({'class': 'form-control'})),
+    username = forms.CharField(label='Username', min_length=5, max_length=150,help_text=None, widget=forms.TextInput({'class': 'form-control'})),
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput({'class': 'form-control'})),
     password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput({'class': 'form-control'}))

@@ -10,11 +10,15 @@ from .forms.profile_form import ProfileForm, SignUpForm
 def register(request):
     if request.method == 'POST':
         form = SignUpForm(data=request.POST)
+
         if form.is_valid():
             form.save()
             return redirect('login')
+    form = SignUpForm()
+    for x in form.fields:
+        pass
     return render(request, 'users/register.html', {
-        'form': SignUpForm()
+        'form': form
     })
 
 def profile(request):
