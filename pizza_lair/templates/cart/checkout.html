@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the checkout phase</h1>
+    <div id="checkout">
+    <h1>Enter your details</h1>
     <form class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
@@ -12,4 +13,5 @@
         <button type="button">forward</button>
     </a>
     </form>
+    </div>
 {% endblock %}
