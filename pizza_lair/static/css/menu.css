@@ -253,9 +253,7 @@ a {
     margin: auto;
 }
 
-
-
-#pizza-details {
+.product-details{
     padding: 2rem;
     text-align: center;
     margin-top: 2rem;
@@ -267,6 +265,7 @@ a {
     border-radius: 2%;
     border: 1px solid gray;
 }
+
 
 #pizza-categories {
 }

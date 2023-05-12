@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div id="drink-details" class="product-details">
     <img width="300px" height="300px" src="{{ drink.prod.imgLink }}">
     <h1>{{ drink.prod.name }}</h1>
     <p>{{ drink.prod.desc }}</p>
     </ul>
     <button onclick="addToCart({{ drink.prod.id }})">Add to Cart</button>
+    </div>
 {% endblock %}
