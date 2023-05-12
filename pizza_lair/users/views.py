@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
-from .forms.profile_form import ProfileForm
+from .forms.profile_form import ProfileForm, SignUpForm
 
 
 
@@ -9,12 +9,12 @@ from .forms.profile_form import ProfileForm
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
+        form = SignUpForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
     return render(request, 'users/register.html', {
-        'form': UserCreationForm()
+        'form': SignUpForm()
     })
 
 def profile(request):

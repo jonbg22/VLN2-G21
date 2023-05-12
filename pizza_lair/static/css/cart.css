@@ -181,3 +181,23 @@ h2.Confirmation-text {
     padding-left: 33%;
     padding-top: 10%;
 }
+
+.register-form {
+    margin-top: 1rem;
+    align-self: center;
+    padding: 10px;
+    flex-flow: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: whitesmoke;
+    height: auto;
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 30%;
+    vertical-align: top;
+}
+
+input.btn.btn-primary {
+    margin: 5%;
+}

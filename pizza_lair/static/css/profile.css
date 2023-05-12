@@ -96,3 +96,11 @@ label {
     display: flex;
 }
 
+input#id_password {
+    width: 100%;
+}
+
+input#id_username {
+    width: 100%;
+}
+
