@@ -13,7 +13,7 @@
                     <div class="cart-item" data-id="{{ product.id }}" data-prodid="{{ product.prod_id }}">
                         <p>{{ product.item.name }}</p>
                         <div class="product-price-container">
-                            $<p class="product-single-price">{{ product.price }}</p>
+                            $<p class="product-single-price">{{ product.price | floatformat }}</p>
                         </div>
                         <div class="product-counter">
                             <button onclick="incrementItem('-', {{ product.id }}, {{ product.prod_id }})" class="product-minus">-</button>
@@ -21,7 +21,7 @@
                             <button onclick="incrementItem('+', {{ product.id }}, {{ product.prod_id }})" class="product-plus">+</button>
                         </div>
                         <div class="product-price-container">
-                            $<p class="product-total-price">{{ product.total_price  }}</p>
+                            $<p class="product-total-price">{{ product.total_price | floatformat }}</p>
                         </div>
                         <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
                     </div>
@@ -30,6 +30,7 @@
                         <div class="cart-item-offer" data-id="{{ product.id }}">
                             <p>{{ product.name }}</p>
                             <button class="expand-details">Details ▼</button>
+                            <p>${{ product.price | floatformat }}</p>
                         <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
                         </div>
                     <div class="cart-offer-details">
@@ -52,13 +53,18 @@
                     </div>
                     {% endif %}
                 {% endfor %}
-                <button type="button" id="clear-cart-btn">Clear</button>
-                <a href="{% url 'checkout'%}">
+                <div class="cart-footer">
+                    <div>
+                    <button type="button" id="clear-cart-btn">Clear</button>
+                    <a href="{% url 'checkout'%}">
                 <button type="button" id="checkout-cart-btn">Checkout</button>
-                <div class="cart-total">
-                    Total<br>$<p class="cart-total-price">{{ cart_price | floatformat }}</p>
-                </div>
                 </a>
+                </div>
+                <div class="cart-total">
+                    Total: $<span class="cart-total-price">{{ cart_price | floatformat }}</span>
+                </div>
+                </div>
+
             {% endif %}
         </div>
     </div>

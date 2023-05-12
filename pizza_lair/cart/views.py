@@ -95,9 +95,9 @@ def index(request):
                               cart_item.get('sides', [])],
                     "drinks": [Drink.objects.select_related("prod").get(prod__id=prod_id) for prod_id in
                                cart_item.get('drinks', [])],
+                    "price": offer.price
                 }
-                print("ITEM =", item)
-                print("CART ITEM =", cart_item)
+                cart_price += offer.price
             cart.append(item)
 
     return render(request, 'cart/index.html', {
