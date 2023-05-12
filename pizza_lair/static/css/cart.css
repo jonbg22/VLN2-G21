@@ -154,6 +154,7 @@
     border: 1px solid gray;
 }
 
+<<<<<<< HEAD
 #review {
     width: 50%;
     margin: 1rem auto;
@@ -170,4 +171,12 @@
 .review-header {
     text-align: center;
     margin: 1rem;
+
+h1.Confirmation-header {
+    padding-left: 33%;
+}
+
+h2.Confirmation-text {
+    padding-left: 33%;
+    padding-top: 10%;
 }

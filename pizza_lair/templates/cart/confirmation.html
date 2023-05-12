@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>This is the confirmation phase</h1>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-    <h2>Pizza Time!!!!</h2>
+    <h1 class="Confirmation-header">Order is now finished</h1>
+    <h2 class="Confirmation-text">Your pizzas are in the oven</h2>
     </form>
 {% endblock %}
