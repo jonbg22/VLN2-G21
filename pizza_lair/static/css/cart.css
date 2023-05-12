@@ -94,6 +94,17 @@
     align-items: center;
 }
 
+
+.product-price-container {
+    display: flex;
+}
+
+.product-price-container > p {
+    margin-left: 0;
+}
+
+
+
 .cart-del-btn {
     height: 20px;
     width: 20px;
