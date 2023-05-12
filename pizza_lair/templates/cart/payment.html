@@ -6,10 +6,10 @@
         <form class="form form-horizontal" method="post">
             {% csrf_token %}
             {{ form }}
-            <input type="submit">
         <a href="{% url 'checkout' %}">
         <button type="button">back</button>
         </a>
+            <input type="submit">
         </form>
     </div>
 {% endblock %}
