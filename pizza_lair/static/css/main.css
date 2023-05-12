@@ -69,6 +69,9 @@ header {
     margin: 1rem;
 }
 
+#nav-left > a:hover {
+    text-shadow: 0.5px 0.5px black;
+}
 
 #nav-center {
     color: white;
