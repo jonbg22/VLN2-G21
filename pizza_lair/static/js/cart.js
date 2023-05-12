@@ -52,13 +52,21 @@ const deleteItem = (itemID, all = true) => {
             console.log("Deleting Item");
             $('.cart-offer-wrapper').each(function () {
                 if (parseInt($(this).children('.cart-item-offer').attr("data-id")) === itemID) {
+                    const offer = $(this).children('.cart-item-offer')
+                    const cartPrice = $('.cart-total-price');
+                    const singlePrice = offer.children('.product-offer-price-container').children('.product-offer-price');
                     $(this).remove()
+                    cartPrice.text(parseFloat(cartPrice.text()) - parseFloat(singlePrice.text()));
                 }
             })
             $('.cart-item').each(function (ind) {
                 if (parseInt($(this).attr("data-id")) === itemID) {
                     if (all) {
                         $(this).remove();
+                        const cartPrice = $('.cart-total-price');
+                        const totalPrice = $(this).children('.product-price-container').children('.product-total-price');
+                        cartPrice.text(parseFloat(cartPrice.text()) - parseFloat(totalPrice.text()));
+
                     } else {
                         const counter = $(this).children('.product-counter').children('.product-count');
                         if (parseInt(counter.text()) > 1) counter.text(parseInt(counter.text())-1);
@@ -75,7 +83,7 @@ const deleteItem = (itemID, all = true) => {
 }
 
 
-const incrementPrice = (element, modifier) => {
+const incrementPrice = (element, modifier, multiplier) => {
     const totalPrice = $(element).children('.product-price-container').children('.product-total-price');
     const singlePrice = $(element).children('.product-price-container').children('.product-single-price');
     const cartPrice = $('.cart-total-price')
