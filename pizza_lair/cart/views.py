@@ -8,7 +8,7 @@ from offers.models import Offer
 from users.models import Profile
 from enum import Enum
 from .forms.payment_form import PaymentForm
-
+from django.contrib.auth.decorators import login_required
 
 def add_to_cart(request):
     if not request.method == "POST":
@@ -62,7 +62,7 @@ def delete_item(request, item_id):
 
         return HttpResponse("Ok")
 
-
+@login_required
 def index(request):
     # uncomment line to clear cart manually
     # del request.session['cart']
@@ -114,7 +114,7 @@ def checkout(request):
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
-            return redirect('profile')
+            return redirect('payment')
     return render(request, 'cart/checkout.html', {
         'form': CheckoutForm(instance=checkout)
     })
@@ -151,7 +151,33 @@ def payment(request):
 
 
 def review(request):
-    return render(request, 'cart/review.html')
+    card_info = {
+        'card_name': request.session['card_name'],
+        'card_num': request.session['card_num'][-4:],
+        'card_date': request.session['card_date'],
+        'card_cvc': request.session['card_cvc']
+    }
+    cart_list = []
+    for item in loads(request.session.get('cart')):
+        if item['type'] == "Product":
+            cur_prod = Product.objects.get(pk=item["prod_id"])
+            cart_list.append({
+                'name': cur_prod.name,
+                'count': item['count'],
+                'price': cur_prod.price * item['count']
+            })
+        elif item['type'] == "Offer":
+            offer = Offer.objects.get(pk=item['offer_id'])
+            cart_list.append({
+                'name': offer.name,
+                'price': offer.price
+            })
+
+    return render(request, 'cart/review.html', {
+        'card_info': card_info,
+        'cart_list': cart_list,
+        'profile': Profile.objects.filter(user=request.user).first()
+    })
 
 
 def confirmation(request):

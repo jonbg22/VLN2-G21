@@ -115,7 +115,8 @@ button{
 
 button:hover {
     background-color: whitesmoke;
-    cursor: pointer
+    cursor: pointer;
+    border-color: grey;
 }
 
 button:active {

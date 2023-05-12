@@ -27,7 +27,6 @@
     margin: 0 0.5em;
 }
 
-
 .cart-item-offer {
     display: flex;
     justify-content: space-around;
@@ -153,4 +152,22 @@
     margin-left: auto;
     border-radius: 2%;
     border: 1px solid gray;
+}
+
+#review {
+    width: 50%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid black;
+    background: whitesmoke;
+    text-align: center;
+}
+
+#review p {
+    font-size: 1.1rem;
+}
+
+.review-header {
+    text-align: center;
+    margin: 1rem;
 }

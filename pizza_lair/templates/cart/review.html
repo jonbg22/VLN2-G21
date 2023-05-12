@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <h1 class="review-header">Review and confirm your order</h1>
     <div id="review">
-    <h1>This is the review phase</h1>
 
-    <form class="form form-horizontal" method="post">
+    <form method="post">
         {% csrf_token %}
+        <div class="review-container">
 
-        {{ one_data }}
+            <div class="personal-information">
+                <h2>Personal Information</h2>
+                <p>Name: {{ profile.name }}</p>
+                <p>Country: {{ profile.country.name }}</p>
+                <p>City: {{ profile.city }}</p>
+                <p>ZIP: {{ profile.zip }}</p>
+                <p>Street: {{ profile.street }} {{ profile.house_number }}</p>
+            </div>
+
+            <div class="payment-information">
+                <h2>Payment Information</h2>
+                <p>Card number ending with {{ card_info.card_num }}</p>
+            </div>
+
+            <div class="order-information">
+                <h2>Order Information</h2>
+
+            {% for item in cart_list %}
+                {{ item.name }}
+            {% endfor %}
+            </div>
+        </div>
 
     <a href="{% url 'payment' %}">
     <button type="button">back</button>
@@ -16,5 +38,5 @@
         <button type="button" id="clear-cart-btn">confirm</button>
     </a>
     </form>
-{% endblock %}
 </div>
+{% endblock %}
