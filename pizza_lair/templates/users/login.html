@@ -2,7 +2,7 @@
 {% block content %}
     <div id="login">
     <h1>Login</h1>
-    <form method="post" class="form from-horizontal">
+    <form method="post" class="form form-horizontal">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-primary" value="Login"/>
