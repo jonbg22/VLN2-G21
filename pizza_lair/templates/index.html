@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'offer_details' 5 %}">
-    <img src="/static/images/pizza.png" class="pizzaofday">
-    </a>
+    <div class="home-wrapper">
+        <a href="{% url 'offer_details' 5 %}">
+        <img src="https://clearcreektahoe.com/wp-content/uploads/Wide-Pizza.jpg" class="home-image">
+        </a>
+    <h1 class="home-header">{{ weekday }}'s Pizza</h1>
+
+    </div>
 {% endblock %}

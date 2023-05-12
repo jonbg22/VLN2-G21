@@ -1,0 +1,12 @@
+.home-image {
+    height: 30rem;
+}
+.home-wrapper {
+    width: fit-content;
+    margin: auto;
+}
+
+.home-header {
+    text-align: center;
+    margin: 1rem 0;
+}

@@ -10,6 +10,7 @@ def pizzas(request):
     flag = False
     filtered_pizzas = []
     all_pizzas = Pizza.objects.all()
+
     if request.GET.get('search') not in [None, ""]:
         flag = True
         search = request.GET['search']

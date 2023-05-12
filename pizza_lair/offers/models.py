@@ -1,4 +1,5 @@
 from django.db import models
+from menu.models import Pizza
 
 # Create your models here.
 
@@ -11,4 +12,10 @@ class Offer(models.Model):
     price = models.FloatField()
     pickup = models.BooleanField()
     imgLink = models.CharField(max_length=999)
+
+
+class PizzaOfTheDay(models.Model):
+    day = models.SmallIntegerField()
+    pizza = models.OneToOneField(Pizza, on_delete=models.CASCADE)
+
 
