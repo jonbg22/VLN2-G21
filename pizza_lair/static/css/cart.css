@@ -106,3 +106,28 @@
     padding: 6px;
     border-radius: 10px;
 }
+
+
+#payment {
+    padding: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: whitesmoke;
+    width: 190px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2%;
+    border: 1px solid gray;
+}
+
+#checkout {
+    padding: 20px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: whitesmoke;
+    width: 450px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2%;
+    border: 1px solid gray;
+}
