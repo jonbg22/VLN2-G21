@@ -43,7 +43,7 @@ HTML
 *Everything inside an element should be indented with one tab
 
 CSS
-*Two newlines between rules
+*One newlines between rules
 *Everything inside a rule must be indented with one tab
 
 
