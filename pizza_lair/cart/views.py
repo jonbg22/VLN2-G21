@@ -62,7 +62,7 @@ def delete_item(request, item_id):
 
         return HttpResponse("Ok")
 
-@login_required
+
 def index(request):
     # uncomment line to clear cart manually
     # del request.session['cart']
@@ -106,6 +106,7 @@ def index(request):
     })
 
 
+@login_required
 def checkout(request):
     checkout = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':

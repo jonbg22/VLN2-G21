@@ -30,7 +30,7 @@
                         <div class="cart-item-offer" data-id="{{ product.id }}">
                             <p>{{ product.name }}</p>
                             <button class="expand-details">Details ▼</button>
-                            <p>${{ product.price | floatformat }}</p>
+                            <p class="product-offer-price-container">$<span class="product-offer-price">{{ product.price | floatformat }}</span></p>
                         <img onclick="deleteItem({{ product.id }})" alt="delete item button" class="cart-del-btn" src="{% static '/images/trashcan.svg' %}">
                         </div>
                     <div class="cart-offer-details">

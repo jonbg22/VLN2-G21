@@ -38,6 +38,7 @@
     background: whitesmoke;
     font-size: 1.2rem;
     border-radius: 10px;
+    margin: 0.5rem;
 }
 
 .cart-offer-details {
@@ -170,6 +171,7 @@
 .review-header {
     text-align: center;
     margin: 1rem;
+}
 
 h1.Confirmation-header {
     padding-left: 33%;
