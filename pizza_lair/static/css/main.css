@@ -102,3 +102,31 @@ header {
 img.profile-image{
     height: 50px;
 }
+
+button{
+    font-size: 10px;
+    height: 2rem;
+    width: 4rem;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #3e8e41;
+    cursor: pointer
+}
+
+button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+input[type="button"], input[type="submit"] {
+    font-size: 10px;
+    height: 2rem;
+    width: 4rem;
+    padding: 6px;
+    border-radius: 10px;
+}
+
