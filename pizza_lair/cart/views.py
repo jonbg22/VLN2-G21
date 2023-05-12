@@ -108,14 +108,38 @@ def checkout(request):
     })
 
 def payment(request):
-    form = PaymentForm()
     if request.method == "POST":
         print(request.POST)
         form = PaymentForm(request.POST)
+        print(request.POST)
+        request.session['card_name'] = request.POST['name_on_card']
+        request.session['card_num'] = request.POST['card_number']
+        request.session['card_date'] = request.POST['expiry_date']
+        request.session['card_cvc'] = request.POST['cvc']
+
         if form.is_valid():
-            return render(request, 'cart/review.html')
+            return redirect('review')
+
+    print("session: ", request.session)
+    card_name = None
+    card_num = None
+    card_date = None
+    card_cvc = None
+
+    if 'card_num' in request.session:
+        print(request.session['card_num'])
+        card_name = request.session['card_name']
+        card_num = request.session['card_num']
+        card_date = request.session['card_date']
+        card_cvc = request.session['card_cvc']
+        
 
 
+    form = PaymentForm()
+    form.fields["name_on_card"].initial = card_name
+    form.fields["card_number"].initial = card_num
+    form.fields["expiry_date"].initial = card_date
+    form.fields["cvc"].initial = card_cvc
     return render(request, 'cart/payment.html', {'form': form})
 
 def review(request):
