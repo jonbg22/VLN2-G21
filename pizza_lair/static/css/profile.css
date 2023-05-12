@@ -85,6 +85,10 @@ form .txt_field{
     vertical-align: top;
 }
 
+.form-profile {
+    width: 60%;
+}
+
 .form-control {
     display: flex;
     align-items: center;
