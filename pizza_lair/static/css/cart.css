@@ -154,3 +154,12 @@
     border-radius: 2%;
     border: 1px solid gray;
 }
+
+h1.Confirmation-header {
+    padding-left: 33%;
+}
+
+h2.Confirmation-text {
+    padding-left: 33%;
+    padding-top: 10%;
+}
