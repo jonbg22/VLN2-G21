@@ -13,3 +13,6 @@ class Profile(models.Model):
     country = CountryField(max_length=9999)
     street = models.CharField(max_length=9999)
     house_number = models.IntegerField()
+
+    def __str__(self):
+        return self.name

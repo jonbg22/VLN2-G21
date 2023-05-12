@@ -16,7 +16,7 @@ def add_to_cart(request):
     cart_list = []
     if request.session.get('cart'):
         cart_list = loads(request.session.get('cart'))
-    print("CART =",cart_list)
+    print("CART =", cart_list)
     data = json.loads(request.body)
     flag = False
     for item in cart_list:
@@ -113,9 +113,7 @@ def payment(request):
         print(request.POST)
         form = PaymentForm(request.POST)
         if form.is_valid():
-            return render(request, 'cart/review.html')
-
-
+            return redirect('review')
     return render(request, 'cart/payment.html', {'form': form})
 
 def review(request):
