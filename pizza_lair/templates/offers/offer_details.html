@@ -9,7 +9,7 @@
     {% csrf_token %}
     {% for i in pizza_amount %}
         <h2>Select Pizza {{ i }}</h2>
-        <select style="width: 150px" name="pizzas" id="pizzas">
+        <select name="pizzas" class="offer_select">
             {% for pizza in pizzas %}
                 <option value="{{ pizza.prod.id }}">{{ pizza.prod.name }}</option>
             {% endfor %}
@@ -17,7 +17,7 @@
     {% endfor %}
     {% for j in sides_amount %}
         <h2>Select sides {{ j }}</h2>
-        <select style="width: 150px" name="sides" id="sides">
+        <select name="sides" class="offer_select">
             {% for side in sides %}
                 <option value="{{ side.prod.id }}">{{ side.prod.name }}</option>
             {% endfor %}
@@ -25,12 +25,13 @@
     {% endfor %}
     {% for k in drinks_amount %}
         <h2>Select drink {{ k }}</h2>
-        <select style="width: 150px" name="drinks" id="drinks">
+        <select name="drinks" class="offer_select">
             {% for drink in drinks %}
                 <option value="{{ drink.prod.id }}">{{ drink.prod.name }}</option>
             {% endfor %}
         </select>
     {% endfor %}
+    <div class="offer-total">Total $<p class="offer-total-price">{{ offer.price | floatformat }}</p></div>
     <button type="submit" value="Submit">Add to Cart</button>
     </form>
     </div>

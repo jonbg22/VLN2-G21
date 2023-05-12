@@ -50,16 +50,22 @@ const deleteItem = (itemID, all = true) => {
         },
         success: ()=> {
             console.log("Deleting Item");
+            $('.cart-offer-wrapper').each(function () {
+                if (parseInt($(this).children('.cart-item-offer').attr("data-id")) === itemID) {
+                    $(this).remove()
+                }
+            })
             $('.cart-item').each(function (ind) {
                 if (parseInt($(this).attr("data-id")) === itemID) {
                     if (all) {
                         $(this).remove();
                     } else {
                         const counter = $(this).children('.product-counter').children('.product-count');
-                        counter.text(parseInt(counter.text())-1);
+                        if (parseInt(counter.text()) > 1) counter.text(parseInt(counter.text())-1);
+                        else if (parseInt(counter.text()) === 1) $(this).remove();
                     }
                 }
-                if ($('.cart-items').html === "") {
+                if ($('.cart-item').length === 0 && $('.cart-item-offer').length === 0 ) {
                     $('.cart-items').html('<h3>Cart is empty</h3>');
                 }
             })
@@ -68,6 +74,27 @@ const deleteItem = (itemID, all = true) => {
     })
 }
 
+
+const incrementPrice = (element, modifier) => {
+    const totalPrice = $(element).children('.product-price-container').children('.product-total-price');
+    const singlePrice = $(element).children('.product-price-container').children('.product-single-price');
+    const cartPrice = $('.cart-total-price')
+    console.log("TOTAL: " + parseFloat(totalPrice.text()))
+    console.log("SINGLE: " + parseFloat(singlePrice.text()))
+    if (modifier === "-") {
+        totalPrice.text(parseFloat((totalPrice.text())) - parseFloat(singlePrice.text()));
+        cartPrice.text(parseFloat(cartPrice.text()) - parseFloat(singlePrice.text()));
+
+    }
+    else if (modifier === "+") {
+        totalPrice.text(parseFloat((totalPrice.text())) + parseFloat(singlePrice.text()));
+        cartPrice.text(parseFloat(cartPrice.text()) + parseFloat(singlePrice.text()))
+    }
+}
+
+
+
+
 const incrementItem = async (dir, itemID,prodID) => {
     if (dir === "+") {
         await addToCart(prodID);
@@ -75,11 +102,17 @@ const incrementItem = async (dir, itemID,prodID) => {
             if (parseInt($(this).attr("data-id")) === itemID) {
                 const counter = $(this).children('.product-counter').children('.product-count');
                 counter.text(parseInt(counter.text())+1);
+                incrementPrice(this, "+")
             }
         })
 
     } else if (dir === "-") {
         deleteItem(itemID,false);
+        $('.cart-item').each(function (ind) {
+            if (parseInt($(this).attr("data-id")) === itemID) {
+                incrementPrice(this, "-")
+            }
+        })
     }
 }
 

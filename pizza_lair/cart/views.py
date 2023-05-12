@@ -9,6 +9,7 @@ from users.models import Profile
 from enum import Enum
 from .forms.payment_form import PaymentForm
 
+
 def add_to_cart(request):
     if not request.method == "POST":
         return HttpResponseNotAllowed(['POST'])
@@ -50,9 +51,11 @@ def delete_item(request, item_id):
                 cart_list = [item for item in cart_list if int(item["id"]) != item_id]
             else:
                 for ind,item in enumerate(cart_list):
-                    if item["id"] == item_id:
+                    if item["id"] == item_id and item["count"] > 1:
                         item["count"] -= 1
                         break
+                    elif item["count"] == 1:
+                        cart_list = [item for item in cart_list if int(item["id"]) != item_id]
 
             request.session["cart"] = dumps(cart_list)
             print("List after", cart_list)
@@ -64,17 +67,22 @@ def index(request):
     # uncomment line to clear cart manually
     # del request.session['cart']
     cart = []
+    cart_price = 0
     if request.session.get('cart'):
         for cart_item in loads(request.session.get('cart')):
-            print("CUR ITEM",cart_item)
+            print("CUR ITEM", cart_item)
             if cart_item["type"] == "Product":
+                prod_item = Product.objects.get(pk=cart_item["prod_id"])
                 item = {
                     "id": cart_item["id"],
                     "type": "Product",
                     "count": cart_item["count"],
                     "prod_id": cart_item["prod_id"],
-                    "item": Product.objects.get(pk=cart_item["prod_id"])
+                    "item": prod_item,
+                    "price": prod_item.price,
+                    "total_price": prod_item.price * cart_item["count"]
                 }
+                cart_price += item["total_price"]
             else:
                 cart_item: dict = cart_item
                 offer = Offer.objects.get(pk=cart_item["offer_id"])
@@ -83,16 +91,20 @@ def index(request):
                     "name": offer.name,
                     "type": "Offer",
                     "pizzas": [Pizza.objects.get(prod__id=prod_id) for prod_id in cart_item.get('pizzas', [])],
-                    "sides": [Side.objects.select_related("prod").get(prod__id=prod_id) for prod_id in cart_item.get('sides', [])],
-                    "drinks": [Drink.objects.select_related("prod").get(prod__id=prod_id) for prod_id in cart_item.get('drinks', [])],
+                    "sides": [Side.objects.select_related("prod").get(prod__id=prod_id) for prod_id in
+                              cart_item.get('sides', [])],
+                    "drinks": [Drink.objects.select_related("prod").get(prod__id=prod_id) for prod_id in
+                               cart_item.get('drinks', [])],
                 }
                 print("ITEM =", item)
                 print("CART ITEM =", cart_item)
             cart.append(item)
 
     return render(request, 'cart/index.html', {
-        'cart': cart
+        'cart': cart,
+        'cart_price': cart_price
     })
+
 
 def checkout(request):
     checkout = Profile.objects.filter(user=request.user).first()
@@ -104,8 +116,9 @@ def checkout(request):
             profile.save()
             return redirect('profile')
     return render(request, 'cart/checkout.html', {
-      'form': CheckoutForm(instance=checkout)
+        'form': CheckoutForm(instance=checkout)
     })
+
 
 def payment(request):
     if request.method == "POST":
@@ -136,8 +149,10 @@ def payment(request):
     form.fields["cvc"].initial = card_cvc
     return render(request, 'cart/payment.html', {'form': form})
 
+
 def review(request):
     return render(request, 'cart/review.html')
+
 
 def confirmation(request):
     return render(request, 'cart/confirmation.html')
